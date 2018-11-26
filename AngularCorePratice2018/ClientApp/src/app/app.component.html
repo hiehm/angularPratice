@@ -6,10 +6,21 @@
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 <nav>
-  <a routerLink="/dashboard">DashBoard</a>
-  <a routerLink="/heros">Heros</a>
+  <a routerLink="/VoteTaker" appHighlight [highlightColor]="'blue'">VoteTaker</a> <!--Directive blue-->
+  <a routerLink="/dashboard" appHighlight highlightColor="yellow">DashBoard</a> <!--Directive yellow-->
+  <a routerLink="/heros" appHighlight [highlightColor]="'orange'">Heros</a> <!--Directive orange-->
 </nav>
+<hr />
+<app-hero-search></app-hero-search>
+<!--<h4>Pick a highlight color</h4>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlight]="color">Highlight me!</p>-->
 <hr />
 <router-outlet></router-outlet>
 <!--<app-heros></app-heros> 我的新component,設定Route後移除Tag-->
 <app-messages></app-messages> <!--Messages Component-->
+<!--<app-vote-taker></app-vote-taker>-->

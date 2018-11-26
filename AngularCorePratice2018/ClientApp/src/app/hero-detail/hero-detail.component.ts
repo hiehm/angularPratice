@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../../ViewModel/Hero'
 @Component({
   selector: 'app-hero-detail',
@@ -7,9 +7,17 @@ import { Hero } from '../../ViewModel/Hero'
 })
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
-  constructor() { }
 
-  ngOnInit() {
+  private _name = '';
+  @Input()
+  set name(name: string) { //設定getter & setter
+    this._name = (name && name.trim()) || '<No name set>'; //判斷是否值
+  }
+  get name(): string {
+    return this._name;
   }
 
+  constructor() { }
+  ngOnInit() {
+  }  
 }

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { //此局部頁面的Component類別名稱
   title = 'I AM MATT';
+  color: string;
 }
