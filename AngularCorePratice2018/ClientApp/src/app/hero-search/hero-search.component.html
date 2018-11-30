@@ -1,16 +1,17 @@
 <div id="search-component">
-  <h4>Hero Search</h4>
-
+  <!--?符號為該物件是否為Null判斷條件-->
+  <h4>Hero Search   {{(heroes$ | async)?.length}}-(keyup透過Server每一次進行撈取動作)</h4>
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div >
+  <div>
     <ul class="search-result">
+      <!--搭配Obervable物件使用,其pipe必須標示為async-->
       <li *ngFor="let hero of heroes$ | async">
-        <!--搭配Obervable物件使-->
         <a routerLink="/detail/{{hero.id}}">
           {{hero.name}}
         </a>
       </li>
     </ul>
-    <!--<div *ngIf="!checkStatus">無資料</div>--> <!--有值無值判斷未實作-->
+    <!--有值無值判斷未實作-->
+    <div *ngIf="(heroes$ | async)?.length==0">無資料</div>
   </div>
 </div>

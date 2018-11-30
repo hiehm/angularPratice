@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../../ViewModel/Hero'
+
+
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',

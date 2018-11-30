@@ -6,9 +6,19 @@
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 <nav>
-  <a routerLink="/VoteTaker" appHighlight [highlightColor]="'blue'">VoteTaker</a> <!--Directive blue-->
-  <a routerLink="/dashboard" appHighlight highlightColor="yellow">DashBoard</a> <!--Directive yellow-->
-  <a routerLink="/heros" appHighlight [highlightColor]="'orange'">Heros</a> <!--Directive orange-->
+  <!--透過@Input()進行highlightColor值傳遞-->
+  <a routerLink="/heroes" routerLinkActive="active" appHighlight [highlightColor]="'pink'">heroes</a> <!--Directive Pink-->
+  <a routerLink="/HttpClientTest" routerLinkActive="active" appHighlight [highlightColor]="'gold'">HttpClientTest</a> <!--Directive gold-->
+  <a routerLink="/ValidDemo" [queryParams]="{myDebug:false}" queryParamsHandling="merge" routerLinkActive="active" appHighlight [highlightColor]="'red'">ValidDemo</a> <!--Directive red-->
+  <a routerLink="/ValidReactiveDemo" routerLinkActive="active" appHighlight [highlightColor]="'green'">ValidReactiveDemo</a> <!--Directive green-->
+  <a routerLink="/VoteTaker" routerLinkActive="active" appHighlight [highlightColor]="'blue'">VoteTaker</a> <!--Directive blue-->
+  <a routerLink="/dashboard" preserveQueryParams preserveFragment routerLinkActive="active" appHighlight highlightColor="yellow">DashBoard</a> <!--Directive yellow-->
+  <a routerLink="/heros" [queryParams]="{debug:true}" fragment="myHeroPoint" routerLinkActive="active" appHighlight [highlightColor]="'orange'">Heros</a> <!--Directive orange-->
+  <!--queryParams=QueryString , fragment=錨點-->
+  <a routerLink="/dashboard" routerLinkActive="active"
+     [queryParams]="{debug:true}" fragment="myTagPoint">QueryAnd#</a>
+  <!--<a routerLink="/dashboard/subdashboard" routerLinkActive="active" appHighlight [highlightColor]="'purple'">MergeDashboard</a>--> <!--Directive purple-->
+
 </nav>
 <hr />
 <app-hero-search></app-hero-search>

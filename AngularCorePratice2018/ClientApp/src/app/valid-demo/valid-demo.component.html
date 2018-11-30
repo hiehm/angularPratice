@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit(validForm.form.valid)" #validForm="ngForm">
+  <!--將ngForm指派給ValidForm變數-->
+  <label for="name">Name</label>
+  <!--required驗證-->
+  <input type="text" class="form-control" id="name"
+         maxlength="4"
+         required
+         [(ngModel)]="model.name" name="name"
+         #name="ngModel"> <!--把ngModel指派給#name-->
+  <div [hidden]="name.valid || name.pristine"
+       class="alert alert-danger">
+    <!--透過#name變數,呼叫ngModel相關屬性-->
+    Name is required
+  </div>
+  <hr />
+  <label for="email">Email</label>
+  <!--required驗證-->
+  <input type="text" class="form-control" id="email"
+         required
+         email
+         ngModel
+         name="email"
+         #email="ngModel"> <!--email格式驗證-->
+  <div [hidden]="email.valid || email.pristine"
+       class="alert alert-danger">
+    Email is Wrong
+  </div>
+  <hr />
+  <label for="pattern">Pattern</label>
+  <input type="text" class="form-control" id="pattern"
+         pattern="[a-zA-Z]*"
+         ngModel
+         name="pattern"
+         #pattern="ngModel" /> <!--只允許英文大小寫-->
+  <div [hidden]="pattern.valid || pattern.pristine"
+       class="alert alert-danger">
+    Pattern is Wrong
+  </div>
+  <hr />
+  <!--validForm.form.valid判斷表單有無通過驗證-->
+  <button type="submit" [disabled]="!validForm.form.valid">Submit</button>
+  <div>
+    Form Message:{{FormMessage}}
+  </div>
+</form> <!--加入Form表單,其包含於內的元素必須設定name Attribute-->
+

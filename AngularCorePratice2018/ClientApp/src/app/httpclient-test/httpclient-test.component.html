@@ -1,0 +1,21 @@
+<p>
+  GetUsers-先取得資料後過濾(keyup不跑Server)
+</p>
+<div>
+  <label>
+    Search:
+    <input #searchInput type="text" (keyup)="search(searchInput.value)" [(ngModel)]="searchvalue" />
+  </label>
+  <input type="button" (click)="GetUsers()" value="取得使用者群" />
+  <ul>
+    <li *ngFor="let u of results">
+      <span>Name:{{u.login}}-ID:{{u.id}}</span>
+    </li>
+  </ul>
+</div>
+<div>
+  <label>
+    Header:
+    {{header|json}}
+  </label>
+</div>

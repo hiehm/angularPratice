@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs'; //宣告Observable
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, retry } from 'rxjs/operators';
 import { Hero } from '../ViewModel/Hero';
 import { HEROES } from '../Utility/Mock-heros';//DataSource
 import { MessageService } from '../Service/message.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; //加入Http類別
-
+import { HttpClient, HttpHeaders, HttpResponse, HttpRequest, HttpParams } from '@angular/common/http'; //加入Http類別
 //@Injectable作為依賴注入使用的Decorator
 //使HeroService可成為被注入的元件
 
 const HttpOptions = { //宣告HttpHeader
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-@Injectable({ 
+
+export interface User { //User Interface
+  login: string
+}
+@Injectable({
   providedIn: 'root'
 })
-
 export class HeroService {
-  private HeroApiUrl = "api/xxxx";
+  private readonly API_URL = 'https://api.github.com';
+  private readonly HeroApiUrl = "api/xxxx";
   private handleError<T>(operation = 'operation', result?: T) { //HandleError發生例外呼叫的處理函式
     return (error: any): Observable<T> => {
       this.log('Error');
@@ -28,10 +31,26 @@ export class HeroService {
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
-  constructor(private messageService: MessageService, private http: HttpClient //注入MessageService服務, 注入HttpClient服務
-  ) {  
 
+  //注入MessageService服務, 注入HttpClient服務
+  constructor(private messageService: MessageService, private http: HttpClient) {  
+ 
   }
+
+  addUser() {
+    this.http.post(`${this.API_URL}/users`, { name: 'MATT', age: 18 }, {
+      params: new HttpParams().set('id', '3') //加入Params進行URL參數設定
+    });
+  }
+
+  getUsers(): Observable<HttpResponse<User[]>> { //資料型態變更為 HttpResponse
+    return this.http.get<User[]>(`${this.API_URL}/users`, { observe: 'response' })
+      .pipe( //透過pipe方式加入前置動作
+        retry(3), //當連線失敗時,重新嘗試次數
+        catchError(this.handleError<any>('error')) //抓取錯誤
+      );
+  }
+
   useHttpGetData(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.HeroApiUrl).pipe(
       catchError(this.handleError<any>('Error')));

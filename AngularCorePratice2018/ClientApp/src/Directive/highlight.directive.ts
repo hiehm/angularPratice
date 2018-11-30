@@ -8,18 +8,18 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 //屬性型 Attribute Directive
 export class HighlightDirective {
-  @Input() highlightColor: string; //(未成功實作傳遞)
+  @Input() highlightColor: string;
   constructor(private el: ElementRef) {
-   // el.nativeElement.style.backgroundColor = 'blue'; //修改Element 背景顏色
   }
   //宣告User Event mouseenter
   @HostListener('mouseenter') onmouseenter() {
-    this.highlight('blue');
+    this.highlight(this.highlightColor);
   }
   //宣告User Event mouseleave
   @HostListener('mouseleave') onmouseleave() {
     this.highlight('');
   }
+  //變更DOM背景顏色
   private highlight(color: string) {
     this.el.nativeElement.style.backgroundColor = color;
   }

@@ -1,7 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "strictNullChecks": true,
+    "strictNullChecks": true, //設定參數加入 |Null |undefined
     "outDir": "../out-tsc/app",
     "types": []
   },
