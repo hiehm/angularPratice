@@ -12,7 +12,7 @@
   <a routerLink="/ValidDemo" [queryParams]="{myDebug:false}" queryParamsHandling="merge" routerLinkActive="active" appHighlight [highlightColor]="'red'">ValidDemo</a> <!--Directive red-->
   <a routerLink="/ValidReactiveDemo" routerLinkActive="active" appHighlight [highlightColor]="'green'">ValidReactiveDemo</a> <!--Directive green-->
   <a routerLink="/VoteTaker" routerLinkActive="active" appHighlight [highlightColor]="'blue'">VoteTaker</a> <!--Directive blue-->
-  <a routerLink="/dashboard" preserveQueryParams preserveFragment routerLinkActive="active" appHighlight highlightColor="yellow">DashBoard</a> <!--Directive yellow-->
+  <a routerLink="/dashboard" queryParamsHandling="merge" preserveFragment routerLinkActive="active" appHighlight highlightColor="yellow">DashBoard</a> <!--Directive yellow-->
   <a routerLink="/heros" [queryParams]="{debug:true}" fragment="myHeroPoint" routerLinkActive="active" appHighlight [highlightColor]="'orange'">Heros</a> <!--Directive orange-->
   <!--queryParams=QueryString , fragment=錨點-->
   <a routerLink="/dashboard" routerLinkActive="active"

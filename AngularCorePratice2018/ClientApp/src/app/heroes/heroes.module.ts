@@ -1,6 +1,6 @@
 //自訂Module
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeroListComponent } from './hero-list/hero-list.component';
@@ -10,6 +10,7 @@ import { HeroesRoutingModule } from './heroes-routing.module'; //將自訂Router
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
     HeroesRoutingModule

@@ -44,8 +44,8 @@ import { HeroesModule } from './heroes/heroes.module'; //自訂Hero Module
   imports: [
     BrowserModule,
     HeroesModule, //自訂Module 順序必須優於AppRoutingModule
-    BrowserAnimationsModule, //添加動態效果模組
-    NoopAnimationsModule,
+    BrowserAnimationsModule, //添加動畫效果模組
+    //NoopAnimationsModule,  //取消動畫效果模組
  
     AppRoutingModule,
     ReactiveFormsModule,
