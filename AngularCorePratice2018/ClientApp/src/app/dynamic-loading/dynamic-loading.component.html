@@ -1,0 +1,12 @@
+<p>
+   Use ngComponentOutlet Dynamic Component
+</p>
+<div>
+  <input type="button" value="Choose A" (click)="ChangeComponent('A')" />
+  <input type="button" value="Choose B" (click)="ChangeComponent('B')" />
+  <input type="button" value="Choose C" (click)="ChangeComponent('C')" />
+</div>
+<ng-container *ngComponentOutlet="mapping.get(chooseForm)">
+
+</ng-container>
+

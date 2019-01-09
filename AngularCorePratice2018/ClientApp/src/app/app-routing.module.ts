@@ -8,6 +8,9 @@ import { VoteTakerComponent } from '../app/vote-taker/vote-taker.component';
 import { ValidDemoComponent } from '../app/valid-demo/valid-demo.component';
 import { ValidReactiveFormComponent } from '../app/valid-reactive-form/valid-reactive-form.component';
 import { HttpclientTestComponent } from '../app/httpclient-test/httpclient-test.component';
+import { MyControlMasterComponent } from '../app/my-control-master/my-control-master.component';
+import { DynamicLoadingComponent } from '../app/dynamic-loading/dynamic-loading.component';
+import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.component';
 const routes: Routes = [ //建構Routes規則
   { path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
   , { path: 'dashboard', component: DashboardComponent }
@@ -16,6 +19,9 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'ValidDemo', component: ValidDemoComponent }
   , { path: 'ValidReactiveDemo', component: ValidReactiveFormComponent }
   , { path: 'detail/:id', component: HeroDetailComponent }
+  , { path: 'MyCustomControl', component: MyControlMasterComponent }
+  , { path: 'DynamicLoading', component: DynamicLoadingComponent }
+  , { path: 'ChangeDectorRef', component: ChangeDectorRefComponent }
  // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

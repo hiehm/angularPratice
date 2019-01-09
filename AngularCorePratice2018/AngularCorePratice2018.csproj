@@ -25,17 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\app.module.ts~RF8fa4ef1.TMP" />
     <None Remove="ClientApp\src\app\Hero.ts" />
+    <None Remove="ClientApp\src\Utility\ErrorLogHandler.ts" />
     <None Remove="ClientApp\src\Utility\Mock-heros.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\Utility\ErrorLogHandler.ts" />
     <TypeScriptCompile Include="ClientApp\src\Utility\Mock-heros.ts" />
     <TypeScriptCompile Include="ClientApp\src\ViewModel\Hero.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\Modules\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

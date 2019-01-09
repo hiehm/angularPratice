@@ -1,0 +1,10 @@
+<p>
+  ControlValueAccessor實作 + Directive ExportAs使用
+</p>
+<app-my-control-component [(ngModel)]="userInfo" (ngModelChange)="log($event)"></app-my-control-component>
+{{ userInfo | json }}
+
+<hr />
+<!--#color="Directive exportAs 外部實體名稱"-->
+<p appExportDirective Mycolor="blue" #color="ExportDirective">Hello World</p>
+<input type="button" (click)="changeColor()" value="ChangeColor" />
