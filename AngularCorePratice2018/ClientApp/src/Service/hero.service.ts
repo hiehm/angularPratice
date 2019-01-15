@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs'; //宣告Observable
-import { catchError, map, tap, retry } from 'rxjs/operators';
+import { catchError, map, tap, retry, shareReplay } from 'rxjs/operators';
 import { Hero } from '../ViewModel/Hero';
 import { HEROES } from '../Utility/Mock-heros';//DataSource
 import { MessageService } from '../Service/message.service';
@@ -46,9 +46,18 @@ export class HeroService {
   getUsers(): Observable<HttpResponse<User[]>> { //資料型態變更為 HttpResponse
     return this.http.get<User[]>(`${this.API_URL}/users`, { observe: 'response' })
       .pipe( //透過pipe方式加入前置動作
+        shareReplay(1),
         retry(3), //當連線失敗時,重新嘗試次數
         catchError(this.handleError<any>('error')) //抓取錯誤
       );
+  }
+  getUsersWithShareReplay() {
+    return this.http.get<HttpResponse<User[]>>(`${this.API_URL}/users`, { observe: 'response' })
+      .pipe(
+      shareReplay(1), //保留最近幾次紀錄
+        retry(3),
+        catchError(this.handleError<any>('error'))
+      )
   }
 
   useHttpGetData(): Observable<Hero[]> {

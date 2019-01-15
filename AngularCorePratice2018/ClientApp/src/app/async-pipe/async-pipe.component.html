@@ -1,0 +1,24 @@
+<p>
+  AsyncPipe Operator相關設定
+</p>
+<div>
+  <label>
+    Search:
+    <input #searchInput type="text" (keyup)="search(searchInput.value)" [(ngModel)]="searchvalue" />
+  </label>
+  <input type="button" (click)="GetUsers()" value="取得使用者群" />
+  <ng-container *ngIf="todos$ |async as todos">
+    <ul>
+      <li *ngFor="let u of todos">
+        <span>Title:{{u.title}}-ID:{{u.id}}</span>
+      </li>
+    </ul>
+    <!--<p>
+      {{data$ |async|json}}
+    </p>-->
+  </ng-container>
+  <!--<p>
+    {{todos$ |async|json}}
+    {{todos$ |async|json}}
+  </p>-->
+</div>

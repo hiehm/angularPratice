@@ -28,6 +28,9 @@ import { AppHttpInterceporService } from './app-http-intercepor.service';
 import { ErrorLogHandler } from '../Utility/ErrorLogHandler';
 import { AppINITIALZERService } from './app-initialzer.service';
 import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.component';
+import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
+import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
+import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
 @NgModule({
@@ -50,7 +53,10 @@ import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.
     MyControlMasterComponent,
     ExportDirectiveDirective,
     DynamicLoadingComponent,
-    ChangeDectorRefComponent
+    ChangeDectorRefComponent,
+    ChangeDetectionStrategyComponent,
+    AsyncPipeComponent,
+    RxjsCollectionComponent
     //HeroListComponent,
     //HeroDetailRComponent
   ],

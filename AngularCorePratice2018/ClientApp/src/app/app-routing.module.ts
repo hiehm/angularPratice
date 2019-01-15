@@ -11,6 +11,9 @@ import { HttpclientTestComponent } from '../app/httpclient-test/httpclient-test.
 import { MyControlMasterComponent } from '../app/my-control-master/my-control-master.component';
 import { DynamicLoadingComponent } from '../app/dynamic-loading/dynamic-loading.component';
 import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.component';
+import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
+import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
+import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 const routes: Routes = [ //建構Routes規則
   { path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
   , { path: 'dashboard', component: DashboardComponent }
@@ -22,7 +25,10 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'MyCustomControl', component: MyControlMasterComponent }
   , { path: 'DynamicLoading', component: DynamicLoadingComponent }
   , { path: 'ChangeDectorRef', component: ChangeDectorRefComponent }
- // , { path: 'heroList', component: HeroListComponent }
+  , { path: 'ChangeDetectionStrategy', component: ChangeDetectionStrategyComponent }
+  , { path: 'AsyncPipe', component: AsyncPipeComponent }
+  , { path: 'Rxjs', component: RxjsCollectionComponent }
+  // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,
   //  children: [{
