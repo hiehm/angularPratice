@@ -1,21 +1,78 @@
 <div>
   <h5>執行方法為: {{funcName}}</h5>
-  {{data$ | async | json}}
+  <div>
+    <h3>buffer</h3>
+    <input type="button" value="bufferTime" (click)="CallbufferTime()" />
+    <input type="button" value="bufferCount" (click)="CallbufferCount()" />
+    <input #BufferBtnClcik type="button" value="連續點擊2次才輸出 bufferTime" (click)="CallBtnbufferTime()" />
+    <div>
+      <span>{{bufferFuncName}}</span>
+    </div>
+    <pre>
+      {{bufferResult | json}}
+    </pre>
+  </div>
+  <hr />
+  <div>
+    <h3>catch</h3>
+    <input type="button" value="catchWithEmpty" (click)="CallcatchWithEmpty()" />
+    <pre>
+      {{catchResult}}
+    </pre>
+  </div>
+  <hr />
+  <div>
+    <h3>combineAll</h3>
+    <input type="button" value="combineAll" (click)="CallcombineAll()" />
+    <!--透過pre格式化 json輸出-->
+    <pre>
+      {{combineAllResult | json}}
+    </pre>
+  </div>
+  <hr />
+  <h3>combineLatest</h3>
+  <input type="button" value="combineLatest" (click)="CallcombineLatest()" />
+  <hr />
+  <h3>distinct & distinctUntilChanged</h3>
+  <input type="button" value="CallDistinctByArray" (click)="CallDistinctByArray()" />
+  <input type="button" value="CallDistinctByCollection" (click)="CallDistinctByCollection()" />
+  <input type="button" value="CallDistinctForClearFlush" (click)="CallDistinctForClearFlush()" /><br />
+  <input type="button" value="CallDistinctUntilChanged" (click)="CallDistinctUntilChanged()" />
+  <pre>
+  {{distinctResult}}
+</pre>
+  <hr />
+  <h3>debounceTime</h3>
+  <input #searchBox type="text" (keyup)="CalldebounceTime(searchBox.value)" />
+  {{debounceTimeStr | async}}
+  <hr />
+  <h3>forkJoin</h3>
+  <input type="button" value="forkJoin" (click)="CallforkJoin()" />
+  <hr />
+  <h3>map</h3>
+  <input type="button" value="map" (click)="CallMap()" />
+  <hr />
+  <h3>switchMap</h3>
+  <input type="button" value="switchMap" (click)="CallswitchMap()" />
+  <hr />
+  <h3>TakeLast</h3>
+  <input type="button" value="CallTakeLast" (click)="StartTakeLastInterval()" />
+  <input #CallTakeLast type="button" value="CallTakeLast" />
+  <pre>
+  {{takeLastResult}}
+</pre>
+  <hr />
+  <h3>TakeUntil</h3>
+  <input type="button" value="StartTakeUntilInterval" (click)="StartTakeUntilInterval()" />
+  <!--(click)="CallTakeUntil()" 使用Subject()方式時加入,同時使用fromEvent(DOM,eventName)會造成衝突-->
+  <input #CallTakeUntil type="button" value="CallTakeUntil" />
+  <pre>
+  {{takeUntilResult}}
+</pre>
+  <hr />
 </div>
-<hr />
-<h3>map</h3>
-<input type="button" value="map" (click)="CallMap()" />
-<hr />
-<h3>switchMap</h3>
-<input type="button" value="switchMap" (click)="CallswitchMap()" />
-<hr />
-<h3>combineLatest</h3>
-<input type="button" value="combineLatest" (click)="CallcombineLatest()" />
-<hr />
-<h3>forkJoin</h3>
-<input type="button" value="forkJoin" (click)="CallforkJoin()" />
-<hr />
-<h3>debounceTime</h3>
-<input #searchBox type="text" (keyup)="CalldebounceTime(searchBox.value)" />
-{{debounceTimeStr | async}}
-<hr />
+<p>
+  {{data$ | async | json}}
+</p>
+<hr />-->
+
