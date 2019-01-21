@@ -33,6 +33,19 @@
   <h3>combineLatest</h3>
   <input type="button" value="combineLatest" (click)="CallcombineLatest()" />
   <hr />
+  <div>
+    <h3>concat & concatAll = concatMap</h3>
+    <input type="button" value="CallConcat" (click)="CallConcat()" />
+    <input type="button" value="CallConcatAll" (click)="CallConcatAll()" />
+    <input type="button" value="CallConcatMap" (click)="CallConcatMap()" />
+    <p>
+      執行方法:{{concatMethods}}
+    </p>
+    <pre>
+      {{concatResult}}
+    </pre>
+  </div>
+  <hr />
   <h3>distinct & distinctUntilChanged</h3>
   <input type="button" value="CallDistinctByArray" (click)="CallDistinctByArray()" />
   <input type="button" value="CallDistinctByCollection" (click)="CallDistinctByCollection()" />
@@ -49,8 +62,35 @@
   <h3>forkJoin</h3>
   <input type="button" value="forkJoin" (click)="CallforkJoin()" />
   <hr />
+  <h3>groupBy</h3>
+  <input type="button" value="CallGroupBy" (click)="CallGroupBy()" />
+  <pre>
+     name: 'Anna', score: 100, subject: 'English',
+     name: 'Anna', score: 90, subject: 'Math' ,
+     name: 'Anna', score: 96, subject: 'Chinese' ,
+     name: 'Jerry', score: 80, subject: 'English' ,
+     name: 'Jerry', score: 100, subject: 'Math' ,
+     name: 'Jerry', score: 90, subject: 'Chinese'
+  </pre>
+  <pre>
+輸出結果:
+  {{groupbyResult}}
+</pre>
+  <hr />
   <h3>map</h3>
   <input type="button" value="map" (click)="CallMap()" />
+  <hr />
+  <h3>merge & mergeAll & mergeMap</h3>
+  <input type="button" value="CallMerge" (click)="CallMerge()" />
+  <input type="button" value="CallMergeAll" (click)="CallMergeAll()" />
+  <input type="button" value="CallMergeMap" (click)="CallMergeMap()" />
+  <input #ClearMerge type="button" value="ClearMerge" />
+  <p>
+    執行方法:{{mergeMethods}}
+  </p>
+  <pre>
+  {{mergeResult}}
+  </pre>
   <hr />
   <h3>switchMap</h3>
   <input type="button" value="switchMap" (click)="CallswitchMap()" />
@@ -68,6 +108,17 @@
   <input #CallTakeUntil type="button" value="CallTakeUntil" />
   <pre>
   {{takeUntilResult}}
+</pre>
+  <hr />
+  <h3>Window & WindowCount & WindowToggle</h3>
+  <input type="button" value="CallWindow" (click)="CallWindow()" />
+  <input type="button" value="CallWindowCount" (click)="CallWindowCount()" />
+  <input type="button" value="CallWindowTime" (click)="CallWindowTime()" />
+  <input type="button" value="CallWindowToggle" (click)="CallWindowToggle()" />
+  <input type="button" value="CallWindowWhen" (click)="CallWindowWhen()" />
+  <input #ClearWindow type="button" value="ClearWindow" />
+  <pre>
+  每秒Click次數統計:{{windowResult}}
 </pre>
   <hr />
 </div>
