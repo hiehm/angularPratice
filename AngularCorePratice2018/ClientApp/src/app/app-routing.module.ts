@@ -14,6 +14,7 @@ import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
 import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
+import { AnimationComponent } from './animation/animation.component';
 const routes: Routes = [ //建構Routes規則
   { path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
   , { path: 'dashboard', component: DashboardComponent }
@@ -28,6 +29,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'ChangeDetectionStrategy', component: ChangeDetectionStrategyComponent }
   , { path: 'AsyncPipe', component: AsyncPipeComponent }
   , { path: 'Rxjs', component: RxjsCollectionComponent }
+  , { path: 'Animation', component: AnimationComponent }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

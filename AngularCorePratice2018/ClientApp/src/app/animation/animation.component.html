@@ -1,0 +1,7 @@
+<!--<div [@triggerName]="expression">...</div>;-->
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
+<div>
+  <input type="button" value="Toggle" (click)="toggle()" />
+</div>

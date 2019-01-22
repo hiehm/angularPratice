@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ViewChild, ElementRef, Inject } from '@angular/core';
-import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, throwError, concat } from 'rxjs';
+import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, throwError, concat, Scheduler } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, mapTo, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce } from 'rxjs/operators';
+import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, mapTo, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share } from 'rxjs/operators';
 import { UpperCasePipe, JsonPipe } from '@angular/common';
 import { SOURCE } from '@angular/core/src/di/injector';
 @Component({
@@ -28,10 +28,12 @@ export class RxjsCollectionComponent implements OnInit {
   groupbyResult: any;
   mergeMethods: string;
   mergeResult: string;
-  windowResult: string;
+  subjectResult: string;
+  private _subjectBySubject = new Subject();
   private _takeUntilButtonEvent = new Subject();
   takeUntilResult: string;
   takeLastResult: string;
+  windowResult: string;
   data$: Observable<any[]>;
   data2$: Observable<any[]>;
   data3$: Observable<any[]>;
@@ -56,6 +58,7 @@ export class RxjsCollectionComponent implements OnInit {
     this.groupbyResult = '';
     this.mergeMethods = '';
     this.mergeResult = '';
+    this.subjectResult = '';
     this.windowResult = '';
     this.data$ = this.httpClient.get<any[]>(this.API_URL2).pipe(
       map(data => data.splice(0, 10))
@@ -69,6 +72,12 @@ export class RxjsCollectionComponent implements OnInit {
       filter(x => x.length >= 3),
       map(x => x)
     );
+    this._subjectBySubject.subscribe((data) => {
+      this.subjectResult +='SubjectA:'+ data + ',';
+    });
+    this._subjectBySubject.subscribe((data) => {
+      this.subjectResult += 'SubjectB:' + data + ',';
+    });
   }
 
   //buffer-bufferTime
@@ -334,6 +343,11 @@ export class RxjsCollectionComponent implements OnInit {
     ).subscribe(res => {
       this.groupbyResult += `{name:${res.name},score:${res.score}}\n`;
     });
+  }
+
+  //Subject -multiCast
+  CallSubject() {
+    this._subjectBySubject.next('MATT');
   }
 
   //TakeUntil

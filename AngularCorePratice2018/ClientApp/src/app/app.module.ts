@@ -31,6 +31,7 @@ import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
 import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
+import { AnimationComponent } from './animation/animation.component';
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
 @NgModule({
@@ -56,7 +57,8 @@ import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.compo
     ChangeDectorRefComponent,
     ChangeDetectionStrategyComponent,
     AsyncPipeComponent,
-    RxjsCollectionComponent
+    RxjsCollectionComponent,
+    AnimationComponent
     //HeroListComponent,
     //HeroDetailRComponent
   ],

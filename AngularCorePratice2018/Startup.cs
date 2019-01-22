@@ -60,10 +60,10 @@ namespace AngularCorePratice2018
 
                 spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
+#if DEBUG
+                spa.UseAngularCliServer(npmScript: "start");
+
+#endif
             });
         }
     }

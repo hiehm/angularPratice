@@ -4,7 +4,8 @@
 <div>
   <label>
     Search:
-    <input #searchInput type="text" (keyup)="search(searchInput.value)" [(ngModel)]="searchvalue" />
+    <!-- [(ngModel)]="searchvalue" -->
+    <input #searchInput type="text" (keyup)="search(searchInput.value)" />
   </label>
   <input type="button" (click)="GetUsers()" value="取得使用者群" />
   <ng-container *ngIf="todos$ |async as todos">

@@ -1,8 +1,10 @@
 <div>
   <span>Name</span>
-  <input type="text" [(ngModel)]="info.name" (input)="userInfoChange()" />
+  <!-- [(ngModel)]="info.name"-->
+  <input type="text" (input)="userInfoChange()" />
 </div>
 <div>
   <span>Age</span>
-  <input type="number" [(ngModel)]="info.age" (input)="userInfoChange()" />
+  <!-- [(ngModel)]="info.age"-->
+  <input type="number" (input)="userInfoChange()" />
 </div>
