@@ -29,11 +29,13 @@
     <None Remove="ClientApp\src\app\Hero.ts" />
     <None Remove="ClientApp\src\Utility\ErrorLogHandler.ts" />
     <None Remove="ClientApp\src\Utility\Mock-heros.ts" />
+    <None Remove="ClientApp\src\Utility\slideInDownAnimation.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\Utility\ErrorLogHandler.ts" />
     <TypeScriptCompile Include="ClientApp\src\Utility\Mock-heros.ts" />
+    <TypeScriptCompile Include="ClientApp\src\Utility\slideInDownAnimation.ts" />
     <TypeScriptCompile Include="ClientApp\src\ViewModel\Hero.ts" />
   </ItemGroup>
 

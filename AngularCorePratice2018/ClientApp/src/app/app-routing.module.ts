@@ -30,6 +30,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'AsyncPipe', component: AsyncPipeComponent }
   , { path: 'Rxjs', component: RxjsCollectionComponent }
   , { path: 'Animation', component: AnimationComponent }
+  , { path: 'compose', component: AnimationComponent, outlet:'popup' }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

@@ -1,11 +1,15 @@
-import { Component,OnInit, NgZone} from '@angular/core';
-
+import { Component, OnInit, NgZone } from '@angular/core';
+import { slideInDownAnimation } from '../Utility/slideInDownAnimation';
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root', //指定此局部頁面內容要插入於Index.html頁面中的哪個元素
   templateUrl: './app.component.html', //指定此局部頁面的模組為哪個html檔案
-  styleUrls: ['./app.component.css'] //指定此局部頁面的css來源自哪個css檔案
+  styleUrls: ['./app.component.css'], //指定此局部頁面的css來源自哪個css檔案
+  animations: [slideInDownAnimation]
 })
 export class AppComponent implements OnInit {
+  title = 'I AM MATT';
+  color: string;
   constructor(private zone: NgZone) {
 
   }
@@ -17,6 +21,7 @@ export class AppComponent implements OnInit {
       console.log('runOutsideAngular');
     });
   }
-  title = 'I AM MATT';
-  color: string;
+  getAnimationData(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 }

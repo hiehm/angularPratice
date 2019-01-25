@@ -5,6 +5,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-animation',
   templateUrl: './animation.component.html',
   styleUrls: ['./animation.component.css'],
+  inputs:['hero'],
   animations: [
     trigger('openClose', [
       state('open', style({
