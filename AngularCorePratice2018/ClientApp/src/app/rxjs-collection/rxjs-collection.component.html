@@ -59,6 +59,18 @@
   <input #searchBox type="text" (keyup)="CalldebounceTime(searchBox.value)" />
   {{debounceTimeStr | async}}
   <hr />
+  <h3>defaultIfEmpty</h3>
+  <input type="button" value="CallDefaultIfEmpty" (click)="CallDefaultIfEmpty()" />
+  <pre>
+  {{defaultIfEmptyResult}}
+</pre>
+  <hr />
+  <h3>every</h3>
+  <input type="button" value="CallEvery" (click)="CallEvery()" />
+  <pre>
+  {{everyResult}}
+</pre>
+  <hr />
   <h3>forkJoin</h3>
   <input type="button" value="forkJoin" (click)="CallforkJoin()" />
   <hr />
@@ -90,6 +102,18 @@
   </p>
   <pre>
   {{mergeResult}}
+  </pre>
+  <hr />
+  <h3>pairwise</h3>
+  <input type="button" value="CallPairwise" (click)="CallPairwise()" />
+  <pre>
+  {{pairwiseResult}}
+  </pre>
+  <hr />
+  <h3>race</h3>
+  <input type="button" value="CallRace" (click)="CallRace()" />
+  <pre>
+  {{raceResult}}
   </pre>
   <hr />
   <h3>switchMap</h3>

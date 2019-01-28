@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ViewChild, ElementRef, Inject } from '@angular/core';
-import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, throwError, concat, Scheduler } from 'rxjs';
+import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, throwError, concat, Scheduler, range } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, mapTo, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share } from 'rxjs/operators';
+import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, mapTo, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share, pairwise, race, defaultIfEmpty, every } from 'rxjs/operators';
 import { UpperCasePipe, JsonPipe } from '@angular/common';
 import { SOURCE } from '@angular/core/src/di/injector';
 @Component({
@@ -25,9 +25,13 @@ export class RxjsCollectionComponent implements OnInit {
   concatMethods: string;
   concatResult: string;
   distinctResult: string;
+  defaultIfEmptyResult: string;
+  everyResult: string;
   groupbyResult: any;
   mergeMethods: string;
   mergeResult: string;
+  pairwiseResult: string;
+  raceResult: string;
   subjectResult: string;
   private _subjectBySubject = new Subject();
   private _takeUntilButtonEvent = new Subject();
@@ -54,10 +58,14 @@ export class RxjsCollectionComponent implements OnInit {
     this.combineAllResult = new Array<string[]>();
     this.concatResult = '';
     this.concatMethods = '';
+    this.defaultIfEmptyResult = '';
     this.distinctResult = '';
+    this.everyResult = '';
     this.groupbyResult = '';
     this.mergeMethods = '';
     this.mergeResult = '';
+    this.pairwiseResult = '';
+    this.raceResult = '';
     this.subjectResult = '';
     this.windowResult = '';
     this.data$ = this.httpClient.get<any[]>(this.API_URL2).pipe(
@@ -92,6 +100,7 @@ export class RxjsCollectionComponent implements OnInit {
       this.bufferResult += `[${res}]、`;
     });
   }
+
   //buffer-bufferCount
   CallbufferCount() {
     this.bufferResult = '';
@@ -104,6 +113,7 @@ export class RxjsCollectionComponent implements OnInit {
       this.bufferResult += `[${res}]、`;
     });
   }
+
   //buffer-Button bufferTime
   CallBtnbufferTime() {
     this.bufferFuncName = '連續點擊測試';
@@ -116,6 +126,7 @@ export class RxjsCollectionComponent implements OnInit {
       this.bufferResult = 'Double Click Success';
     });
   }
+
   //catchError
   CallcatchWithEmpty() {
     //['1', '2', '3', '4', 5] 欲測試必須改為此陣列
@@ -143,8 +154,7 @@ export class RxjsCollectionComponent implements OnInit {
     const subscribe = combined.subscribe(val => this.combineAllResult.push(val));
   }
 
-  //concat
-  //將兩組Observable合併並且依序輸出
+  //concat:將兩組Observable合併並且依序輸出
   CallConcat() {
     let f = timer(10, 500).pipe(
       map(r => {
@@ -164,8 +174,7 @@ export class RxjsCollectionComponent implements OnInit {
     });
   }
 
-  //concatAll
-  //將多維陣列攤開成一維
+  //concatAll:將多維陣列攤開成一維
   CallConcatAll() {
     let SourceA = from([1, 2, 3]);
     let SourceR = of(SourceA, [[4, 5, 6], [11, 23, 45]]);
@@ -177,8 +186,7 @@ export class RxjsCollectionComponent implements OnInit {
     });
   }
 
-  //concatMap
-  //map+concatAll
+  //concatMap:map+concatAll
   CallConcatMap() {
     let SourceA = from([[1, 2, 3]]);
     let SourceB = from([[4, 5, 6], [7, 8, 9], [10, 11, 12]]);
@@ -188,6 +196,15 @@ export class RxjsCollectionComponent implements OnInit {
     ).subscribe(res => {
       this.concatMethods = 'ConcatMap';
       this.concatResult += res + ',';
+    });
+  }
+
+  //DefaultIfEmpty
+  CallDefaultIfEmpty() {
+    of().pipe(
+      defaultIfEmpty('this observable is empty!')
+    ).subscribe(res => {
+      this.defaultIfEmptyResult += res;
     });
   }
 
@@ -201,6 +218,7 @@ export class RxjsCollectionComponent implements OnInit {
       this.distinctResult += res + ',';
     });
   }
+
   //Distinct - Filter For Collection
   CallDistinctByCollection() {
     from([{ value: 'a' }, { value: 'b' }, { value: 'c' }, { value: 'a' }, { value: 'c' }]).pipe(
@@ -210,6 +228,7 @@ export class RxjsCollectionComponent implements OnInit {
       this.distinctResult += res.value + ',';
     });
   }
+
   //Distinct - ClearFlush By Second Parameter
   CallDistinctForClearFlush() {
     from(['1', '2', '3', '1', '2']).pipe(
@@ -219,6 +238,7 @@ export class RxjsCollectionComponent implements OnInit {
       this.distinctResult += res + ',';
     });
   }
+
   //DistinctUntilChanged 
   CallDistinctUntilChanged() {
     from(['a', 'b', 'c', 'c', 'd', 'e', 'e', 'f']).pipe(
@@ -229,6 +249,24 @@ export class RxjsCollectionComponent implements OnInit {
     });
   }
 
+  //Every
+  CallEvery() {
+    
+    let source = of(1, 2, 3, 4, 5);
+    this.everyResult += `[1,2,3,4,5]`;
+    source.pipe(
+      every(val => val <= 5)
+    ).subscribe(res => {
+      this.everyResult += `\n內容是否符合<=5:${res}`;
+    });
+    source.pipe(
+      every(val => val % 2 === 0)
+    ).subscribe(res => {
+      this.everyResult += `\n內容是否符合%2===0:${res}`;
+    });
+  }
+
+  //Map
   CallMap() {
     this.data$ = this.data$.pipe(
       //map變化前
@@ -282,6 +320,7 @@ export class RxjsCollectionComponent implements OnInit {
     });
   }
 
+  //SwitchMap
   CallswitchMap() {
     this.data$ = this.data$.pipe(
       shareReplay(1),
@@ -290,6 +329,8 @@ export class RxjsCollectionComponent implements OnInit {
     );
     this.funcName = 'switchMap';
   }
+
+  //CombineLatest
   CallcombineLatest() {
     this.data2$ = this.httpClient.get<any[]>(this.API_URL2);
     this.data3$ = this.httpClient.get<any[]>(this.API_URL);
@@ -345,6 +386,31 @@ export class RxjsCollectionComponent implements OnInit {
     });
   }
 
+  //Race
+  CallRace() {
+    interval(5000).pipe(
+      defaultIfEmpty(),
+      race(
+        interval(1500),
+        interval(1000),
+        interval(500),
+        interval(3000)),
+      take(5)
+    ).subscribe(res => {
+      this.raceResult += res + ',';
+    });   
+  }
+
+  //Pairwiese
+  CallPairwise() {
+    interval(1000).pipe(
+      pairwise(),
+      take(5)
+    ).subscribe(res => {
+      this.pairwiseResult += `[${res}],`;
+    });
+  }
+
   //Subject -multiCast
   CallSubject() {
     this._subjectBySubject.next('MATT');
@@ -363,10 +429,12 @@ export class RxjsCollectionComponent implements OnInit {
       this.takeUntilResult += 'Complete';
     });
   }
+
   //Call TakeUntil
   CallTakeUntil() {
     this._takeUntilButtonEvent.next();
   }
+
   //TakeLast
   StartTakeLastInterval() {
     interval(1000).pipe(
