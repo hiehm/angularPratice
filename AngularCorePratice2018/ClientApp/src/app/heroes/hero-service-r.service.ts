@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
-import { Hero } from 'src/ViewModel/Hero';
+import { Hero } from '../../ViewModel/Hero';
 import { HEROES } from '../../Utility/Mock-heros';
 
 @Injectable({

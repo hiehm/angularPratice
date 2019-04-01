@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.zone.onUnstable.subscribe(() => { console.log('Event Happening') });
-    this.zone.onStable.subscribe(() => { console.log('Event Over') });
-    this.zone.runOutsideAngular(() => {
-      // 進行跟 UI 無關的複雜運算
-      console.log('runOutsideAngular');
-    });
+    //this.zone.onUnstable.subscribe(() => { console.log('Event Happening') });
+    //this.zone.onStable.subscribe(() => { console.log('Event Over') });
+    //this.zone.runOutsideAngular(() => {
+    //  // 進行跟 UI 無關的複雜運算
+    //  console.log('runOutsideAngular');
+    //});
   }
   getAnimationData(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];

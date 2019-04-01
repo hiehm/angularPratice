@@ -169,6 +169,7 @@ export class RxjsCollectionComponent implements OnInit {
       take(4)
     );
     concat(f, g).subscribe(res => {
+      console.log(res);
       this.concatMethods = 'Concat';
       this.concatResult += 'Source' + res.Source + ':' + res.value + ',';
     });

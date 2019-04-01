@@ -1,0 +1,28 @@
+<input type="file" (change)="fileChangeEvent($event)" />
+<!--
+  [imageChangedEvent]:載入由 <input type=file>傳遞的event物件,其中包含File物件
+  [maintainAspectRatio]:true/false 設定遮罩是否以等比方式縮放
+  [aspectRatio]: 設定遮罩等比縮放比率,當[maintainAspectRatio]=true才有效
+  [resizeToWidth]: 擷取範圍圖片後,搭配[aspectRatio]屬性重新render圖片大小
+  [roundCropper]: 是否啟用圓形遮罩,css加入 border-radius:100%
+  format:輸出格式
+  (imageCropped):擷取後觸發之事件
+  (imageLoaded): 圖片載入後觸發之事件
+  (cropperReady):遮罩準備完成之事件
+  (loadImageFailed):圖片載入失敗之事件
+-->
+<div>
+  <image-cropper [imageChangedEvent]="imageChangedEvent"
+                 [maintainAspectRatio]="true"
+                 [aspectRatio]="1"
+                 [resizeToWidth]="128"
+                 [roundCropper]="true"
+                 format="png"
+                 (imageCropped)="imageCropped($event)"
+                 (imageLoaded)="imageLoaded()"
+                 (cropperReady)="cropperReady()"
+                 (loadImageFailed)="loadImageFailed()"></image-cropper>
+</div>
+<div style="text-align:center;">
+  <img [src]="croppedImage" style="border-radius:100%;" />
+</div>
