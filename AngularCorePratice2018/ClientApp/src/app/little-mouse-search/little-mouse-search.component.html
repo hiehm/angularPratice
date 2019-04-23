@@ -1,0 +1,17 @@
+<div class="SearchBox" (click)="focusEvent()">
+  <div class="SearchContent" contenteditable="true" #searchBox (click)="littleMouseClick()" (keyup)="littleMouseSearch($event)">
+  </div>
+</div>
+<div [ngClass]="_searchUl?'show':'hide'">
+  <ul (keydown)="optionArrowMove($event)" #searchData>
+    <li class="active" #myli (click)="getSearchName('MATT CHEN')">
+      MATT CHEN
+    </li>
+    <li #myli (click)="getSearchName('Bonnie WU')">
+      Bonnie WU
+    </li>
+    <li #myli (click)="getSearchName('Happy CAT')">
+      Happy CAT
+    </li>
+  </ul>
+</div>

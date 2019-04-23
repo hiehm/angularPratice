@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-//import { CommonModule } from '@angular/common'; //加入CommonModule
+import { CommonModule } from '@angular/common'; //加入CommonModule
 import { HerosComponent } from '../app/heros/heros.component'; //加入HerosComponent
 import { HeroDetailComponent } from '../app/hero-detail/hero-detail.component';
 import { DashboardComponent } from '../app/dashboard/dashboard.component'; //加入DashBoardComponent
@@ -15,8 +15,10 @@ import { ChangeDetectionStrategyComponent } from './change-detection-strategy/ch
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
 import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 import { AnimationComponent } from './animation/animation.component';
+import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
 const routes: Routes = [ //建構Routes規則
-  { path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
+   { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
+  //{ path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
   , { path: 'dashboard', component: DashboardComponent }
   , { path: 'HttpClientTest', component: HttpclientTestComponent }
   , { path: 'VoteTaker', component: VoteTakerComponent }
@@ -32,6 +34,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'Animation', component: AnimationComponent }
   , { path: 'compose', component: AnimationComponent, outlet: 'popup' }
   , { path: 'PlugIn', loadChildren: './PlugIn/plugin.module#PluginModule' }
+  , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,
@@ -39,11 +42,13 @@ const routes: Routes = [ //建構Routes規則
   //    path: 'subdashboard/:name', component: SubDashboardComponent
   //  }] //TODO: 父子層Route, path: dashboard/subdashboard (無效果)
   //}
-  , { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
+ 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], //將立好的Routes加入RouteModule
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)], //將立好的Routes加入RouteModule
   exports: [RouterModule]
   //exports: [RouterModule]
 })

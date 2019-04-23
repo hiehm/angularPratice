@@ -32,6 +32,7 @@ import { ChangeDetectionStrategyComponent } from './change-detection-strategy/ch
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
 import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 import { AnimationComponent } from './animation/animation.component';
+import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
 @NgModule({
@@ -58,7 +59,8 @@ import { AnimationComponent } from './animation/animation.component';
     ChangeDetectionStrategyComponent,
     AsyncPipeComponent,
     RxjsCollectionComponent,
-    AnimationComponent
+    AnimationComponent,
+    LittleMouseSearchComponent
     //HeroListComponent,
     //HeroDetailRComponent
   ],
@@ -66,7 +68,7 @@ import { AnimationComponent } from './animation/animation.component';
     BrowserModule,
     HeroesModule, //自訂Module 順序必須優於AppRoutingModule
     BrowserAnimationsModule, //添加動畫效果模組
-    //NoopAnimationsModule,  //取消動畫效果模組
+    ////NoopAnimationsModule,  //取消動畫效果模組
  
     AppRoutingModule,
     ReactiveFormsModule,
@@ -85,14 +87,14 @@ import { AnimationComponent } from './animation/animation.component';
       //Error 全域錯誤處理常式
       provide: ErrorHandler,
       useClass: ErrorLogHandler
-    },
-    {
-      //APP_INITIALZER 程式執行前先行運行設定
-      provide: APP_INITIALIZER,
-      useFactory: (configService: AppINITIALZERService) => () => configService.initData(),
-      deps: [AppINITIALZERService],
-      multi: true
     }
+    //{
+    //  //APP_INITIALZER 程式執行前先行運行設定
+    //  provide: APP_INITIALIZER,
+    //  useFactory: (configService: AppINITIALZERService) => () => configService.initData(),
+    //  deps: [AppINITIALZERService],
+    //  multi: true
+    //}
   ],
   bootstrap: [AppComponent]
 })

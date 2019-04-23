@@ -17,15 +17,15 @@ export class AsyncPipeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todos$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos/').pipe(
-      shareReplay(1)
-    );
+    //this.todos$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos/').pipe(
+    //  shareReplay(1)
+    //);
   }
   GetUsers() {
     //this.data$ = this.heroService.getUsersWithShareReplay();
-    this.todos$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos/').pipe(
-      shareReplay(1)
-    );
+    //this.todos$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos/').pipe(
+    //  shareReplay(1)
+    //);
   }
   search(terms: string) {
     this.todos$ = this.todos$.pipe(

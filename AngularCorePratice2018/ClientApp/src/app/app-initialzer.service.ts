@@ -10,10 +10,10 @@ export class AppINITIALZERService {
   constructor(private httpClient: HttpClient) {
   }
     //APP_INITIALZER回傳類型只接收Promise()方式
-  initData() {
-    return this.httpClient
-      .get('https://jsonplaceholder.typicode.com/todos/')
-      .pipe(tap(config => (this.config = config)))
-      .toPromise();
-  }
+  //initData() {
+  //  return this.httpClient
+  //    .get('https://jsonplaceholder.typicode.com/todos/')
+  //    .pipe(tap(config => (this.config = config)))
+  //    .toPromise();
+  //}
 }

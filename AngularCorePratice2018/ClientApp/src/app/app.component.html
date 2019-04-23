@@ -26,9 +26,10 @@
   <a routerLink="/Animation" routerLinkActive="active">Animation</a>
   <a routerLink="/PlugIn" routerLinkActive="active">PlugIn</a>
   <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">compose</a>
+  <a routerLink="/LittleMouseSearch" routerLinkActive="active">@Little Mouse Search</a>
 </nav>
 <hr />
-<app-hero-search></app-hero-search>
+<!--<app-hero-search></app-hero-search>-->
 <!--<h4>Pick a highlight color</h4>
 <div>
   <input type="radio" name="colors" (click)="color='lightgreen'">Green
@@ -42,5 +43,5 @@
 </div>
 <router-outlet name="popup"></router-outlet>
 <!--<app-heros></app-heros> 我的新component,設定Route後移除Tag-->
-<app-messages></app-messages> <!--Messages Component-->
+<!--<app-messages></app-messages>--> <!--Messages Component-->
 <!--<app-vote-taker></app-vote-taker>-->
