@@ -27,7 +27,8 @@ export class LittleMouseSearchComponent implements OnInit {
       this._selection = window.getSelection();
       this._rangeAt = this._selection.getRangeAt(0);
       this._searchUl = true;
-      this._searchData.nativeElement.focus();
+      this.setDataBlockPosition();
+      //this._searchData.nativeElement.focus();
     }
     else {
       this._searchUl = false;
@@ -40,7 +41,9 @@ export class LittleMouseSearchComponent implements OnInit {
         if (this.checkAltWord()) {
           this._selection = window.getSelection();
           this._rangeAt = this._selection.getRangeAt(0);
+          console.log(this._selection);
           this._searchUl = true;
+          this.setDataBlockPosition();
           //this._searchData.nativeElement.focus();
         }
         else {
@@ -151,5 +154,57 @@ export class LittleMouseSearchComponent implements OnInit {
     console.log(this._searchBoxNavi.lastChild)
     this.renderer.removeChild(this._searchBoxNavi, this._searchBoxNavi.lastChild);
     this.renderer.appendChild(this._searchBoxNavi, this.renderer.createElement('br'));
+  }
+
+  //setDataBlockPosition() {
+  //  this.test();
+  //  //let _left = this._selection.baseOffset * 10;
+  //  //if (_left < 20) {
+  //  //  _left = 50;
+  //  //}
+  //  //this.renderer.setStyle(this._searchData.nativeElement, 'left', _left +'px');
+  //}
+
+  setDataBlockPosition() {
+   let win =  window;
+    var doc = win.document;
+    var sel = doc.getSelection(), range, rects, rect;
+    var x = 0, y = 0;
+    if (sel) {
+      sel = win.getSelection();
+      if (sel.rangeCount) {
+        range = sel.getRangeAt(0).cloneRange();
+        if (range.getClientRects) {
+          range.collapse(true);
+          rects = range.getClientRects();
+          if (rects.length > 0) {
+            rect = rects[0];
+          }
+          x = rect.left;
+          y = rect.top;
+        }
+        // Fall back to inserting a temporary element
+        if (x == 0 && y == 0) {
+          var span = doc.createElement("span");
+          if (span.getClientRects) {
+            // Ensure span has dimensions and position by
+            // adding a zero-width space character
+            span.appendChild(doc.createTextNode("\u200b"));
+            range.insertNode(span);
+            rect = span.getClientRects()[0];
+            x = rect.left;
+            y = rect.top;
+            var spanParent = span.parentNode;
+            spanParent.removeChild(span);
+
+            // Glue any broken text nodes back together
+            spanParent.normalize();
+          }
+        }
+      }
+    }
+    console.log(x + ',' + y);
+    this.renderer.setStyle(this._searchData.nativeElement, 'top', (y-240)+30+ 'px');
+    this.renderer.setStyle(this._searchData.nativeElement, 'left', x + 'px');
   }
 }
