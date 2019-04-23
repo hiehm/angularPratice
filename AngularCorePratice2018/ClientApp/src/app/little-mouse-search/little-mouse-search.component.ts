@@ -41,7 +41,6 @@ export class LittleMouseSearchComponent implements OnInit {
         if (this.checkAltWord()) {
           this._selection = window.getSelection();
           this._rangeAt = this._selection.getRangeAt(0);
-          console.log(this._selection);
           this._searchUl = true;
           this.setDataBlockPosition();
           //this._searchData.nativeElement.focus();
@@ -103,8 +102,7 @@ export class LittleMouseSearchComponent implements OnInit {
 
   private checkAltWord(mouseMode: boolean = false): boolean {
     let result = false;
-    let sel = window.getSelection();
-    let range = sel.getRangeAt(0);
+    let range = window.getSelection().getRangeAt(0);
     let textContent = range.startContainer.textContent;
     let prevWord = textContent.substr(range.startOffset - 1, 1);
     if (mouseMode) {
@@ -149,29 +147,19 @@ export class LittleMouseSearchComponent implements OnInit {
     this._rangeAt.commonAncestorContainer.textContent = this._rangeAt.commonAncestorContainer.textContent.substr(0, this._rangeAt.startOffset - 1);
   }
 
-  //移除Enter產生<div>元素轉換成<br>
-  removeDivToBr() {
-    console.log(this._searchBoxNavi.lastChild)
-    this.renderer.removeChild(this._searchBoxNavi, this._searchBoxNavi.lastChild);
-    this.renderer.appendChild(this._searchBoxNavi, this.renderer.createElement('br'));
-  }
-
-  //setDataBlockPosition() {
-  //  this.test();
-  //  //let _left = this._selection.baseOffset * 10;
-  //  //if (_left < 20) {
-  //  //  _left = 50;
-  //  //}
-  //  //this.renderer.setStyle(this._searchData.nativeElement, 'left', _left +'px');
+  ////移除Enter產生<div>元素轉換成<br>
+  //removeDivToBr() {
+  //  this.renderer.removeChild(this._searchBoxNavi, this._searchBoxNavi.lastChild);
+  //  this.renderer.appendChild(this._searchBoxNavi, this.renderer.createElement('br'));
   //}
 
+  //設定資料顯示位置
   setDataBlockPosition() {
-   let win =  window;
-    var doc = win.document;
-    var sel = doc.getSelection(), range, rects, rect;
-    var x = 0, y = 0;
+    let contentDefy = 240;
+    let sel = window.document.getSelection(), range, rects, rect;
+    let x = 0, y = 0;
     if (sel) {
-      sel = win.getSelection();
+      sel = window.getSelection();
       if (sel.rangeCount) {
         range = sel.getRangeAt(0).cloneRange();
         if (range.getClientRects) {
@@ -183,28 +171,9 @@ export class LittleMouseSearchComponent implements OnInit {
           x = rect.left;
           y = rect.top;
         }
-        // Fall back to inserting a temporary element
-        if (x == 0 && y == 0) {
-          var span = doc.createElement("span");
-          if (span.getClientRects) {
-            // Ensure span has dimensions and position by
-            // adding a zero-width space character
-            span.appendChild(doc.createTextNode("\u200b"));
-            range.insertNode(span);
-            rect = span.getClientRects()[0];
-            x = rect.left;
-            y = rect.top;
-            var spanParent = span.parentNode;
-            spanParent.removeChild(span);
-
-            // Glue any broken text nodes back together
-            spanParent.normalize();
-          }
-        }
       }
     }
-    console.log(x + ',' + y);
-    this.renderer.setStyle(this._searchData.nativeElement, 'top', (y-240)+30+ 'px');
+    this.renderer.setStyle(this._searchData.nativeElement, 'top', (y - contentDefy) + 30 + 'px');
     this.renderer.setStyle(this._searchData.nativeElement, 'left', x + 'px');
   }
 }
