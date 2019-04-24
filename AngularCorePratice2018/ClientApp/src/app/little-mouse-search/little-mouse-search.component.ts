@@ -41,6 +41,7 @@ export class LittleMouseSearchComponent implements OnInit {
         if (this.checkAltWord()) {
           this._selection = window.getSelection();
           this._rangeAt = this._selection.getRangeAt(0);
+          console.log(this._rangeAt);
           this._searchUl = true;
           this.setDataBlockPosition();
           //this._searchData.nativeElement.focus();
@@ -71,6 +72,7 @@ export class LittleMouseSearchComponent implements OnInit {
       this._selection.removeAllRanges();
       this._selection.addRange(this._rangeAt);
       this.clearAltWord();
+
     }
   }
 
@@ -125,26 +127,31 @@ export class LittleMouseSearchComponent implements OnInit {
 
   //指標移動相關
   focusEvent(addMode: boolean = false) {
-    let range = document.createRange();
-    let sel = window.getSelection();
-    if (!isNullOrUndefined(this._searchBox.nativeElement.lastChild)) {
-      if (addMode) {
-        range.setStart(this._searchBox.nativeElement.lastChild, 0);
+    //try {
+      let range = document.createRange();
+      let sel = window.getSelection();
+      if (!isNullOrUndefined(this._searchBox.nativeElement.lastChild)) {
+        if (addMode) {
+          range.setStart(sel.getRangeAt(0).commonAncestorContainer.lastChild, 0);
+        }
+        else {
+          range.setStart(sel.getRangeAt(0).commonAncestorContainer, sel.getRangeAt(0).startOffset);
+        }
       }
       else {
-        range.setStart(sel.getRangeAt(0).commonAncestorContainer, sel.getRangeAt(0).startOffset);
+        range.setStart(this._searchBoxNavi, 0);
       }
-    }
-    else {
-      range.setStart(this._searchBoxNavi, 0);
-    }
-    range.collapse(false);
-    sel.removeAllRanges();
-    sel.addRange(range);
+      range.collapse(false);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    //} catch{
+
+    //} 
   }
 
   clearAltWord() {
     this._rangeAt.commonAncestorContainer.textContent = this._rangeAt.commonAncestorContainer.textContent.substr(0, this._rangeAt.startOffset - 1);
+    this._rangeAt.commonAncestorContainer.parentElement.innerHTML += '&nbsp;';
   }
 
   ////移除Enter產生<div>元素轉換成<br>
