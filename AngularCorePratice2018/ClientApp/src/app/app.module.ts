@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';  //ReactiveForms
 import { FormsModule } from '@angular/forms';// <-- NgModel、Event$ lives here
+import { PartialModule } from './Partial/partial.module';
 import { AppComponent } from './app.component';
 import { HerosComponent } from './heros/heros.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -73,7 +74,8 @@ import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-s
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PartialModule
   ],
  // entryComponents: [DynamicLoadingComponent],
   providers: [
