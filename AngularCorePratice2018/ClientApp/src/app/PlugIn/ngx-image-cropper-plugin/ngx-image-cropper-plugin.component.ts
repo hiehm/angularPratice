@@ -7,7 +7,7 @@ import { ImageCropperComponent, ImageCroppedEvent } from 'ngx-image-cropper';
   styleUrls: ['./ngx-image-cropper-plugin.component.css']
 })
 export class NgxImageCropperPluginComponent implements OnInit {
-  @ViewChild(ImageCropperComponent) imageCropper: ImageCropperComponent;
+  @ViewChild(ImageCropperComponent, { static: true }) imageCropper: ImageCropperComponent;
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper = false;

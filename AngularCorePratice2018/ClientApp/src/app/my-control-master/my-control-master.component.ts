@@ -6,7 +6,7 @@ import { ExportDirectiveDirective } from '../../Directive/export-directive.direc
   styleUrls: ['./my-control-master.component.css']
 })
 export class MyControlMasterComponent{
-  @ViewChild('color') color: ExportDirectiveDirective;
+  @ViewChild('color', { static: true }) color: ExportDirectiveDirective;
 
   userInfo = {
     name: 'Mike',

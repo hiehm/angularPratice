@@ -1,7 +1,7 @@
 import { Hero } from '../ViewModel/Hero' //注入Hero 型別
 
 export const HEROES: Hero[] = [ //宣告陣列HEROES , 型別Hero
-  { id: 11, name: 'Mr. Nice' },
+  { id: 11, name: 'Mr. Nices' },
   { id: 12, name: 'Narco' },
   { id: 13, name: 'Bombasto' },
   { id: 14, name: 'Celeritas' },

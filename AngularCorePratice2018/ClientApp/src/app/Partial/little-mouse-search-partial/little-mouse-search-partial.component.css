@@ -59,3 +59,38 @@ ul {
   display: inline-block;
   color: black;
 }
+
+/*Metadata*/
+.metadataArea {
+  margin-left:15px;
+  border: 1px solid silver;
+  background-color: aliceblue;
+  width: 500px;
+  height: 120px;
+}
+
+.inline-block {
+  display: inline-block;
+  float: left;
+}
+
+.color-silver {
+  color: silver;
+}
+
+.contentText {
+  width: 380px;
+  height:95px;
+}
+
+  .contentText > div {
+    padding: 3px;
+  }
+.div-title{
+  color:black;
+  font-weight:500;
+}
+.div-description{
+  height:40px;
+  overflow:hidden;
+}

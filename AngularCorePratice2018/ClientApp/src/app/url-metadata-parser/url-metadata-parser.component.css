@@ -1,0 +1,21 @@
+.metadataArea
+{
+  border:1px solid silver;
+  background-color:aliceblue;
+  width:500px;
+  height:100px;
+}
+.inline-block{
+  display:inline-block;
+  float:left;
+}
+.color-silver{
+  color:silver;
+}
+
+.contentText{
+  width:380px;
+}
+  .contentText > div{
+    padding:3px;
+  }

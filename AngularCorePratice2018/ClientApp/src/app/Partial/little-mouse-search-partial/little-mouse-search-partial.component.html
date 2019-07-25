@@ -1,5 +1,5 @@
-<div class="SearchBox" (click)="focusEvent()" (keyup)="returnPartialContent()">
-  <div class="SearchContent" contenteditable="true" #searchContent (click)="littleMouseClick()" (keyup)="littleMouseSearch($event)">
+<div class="SearchBox" (click)="focusEvent(false,true)" (keyup)="returnPartialContent()">
+  <div class="SearchContent" contenteditable="true" #searchContent (paste)="onPaste($event)" (click)="littleMouseClick()" (keyup)="littleMouseSearch($event)">
   </div>
   <div [ngClass]="_searchUl?'show':'hide'">
     <ul #searchData>
@@ -7,5 +7,13 @@
         {{item}}
       </li>
     </ul>
+  </div>
+</div>
+<div class="metadataArea" contenteditable="false" [ngClass]="_imageMode?'show':'hide'" (click)="removeImage()">
+  <div class="inline-block"><img width="120" height="120" [src]="this.metadataObj.image"/></div>
+  <div class="inline-block color-silver contentText">
+    <div class="div-title">{{ this.metadataObj.title}}</div>
+    <div>{{this.metadataObj.url}}</div>
+    <div class="div-description">{{this.metadataObj.description}}</div>
   </div>
 </div>

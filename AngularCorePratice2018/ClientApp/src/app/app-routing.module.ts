@@ -16,6 +16,8 @@ import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
 import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 import { AnimationComponent } from './animation/animation.component';
 import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
+import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
+import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.component';
 const routes: Routes = [ //建構Routes規則
    { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
   //{ path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
@@ -33,8 +35,10 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'Rxjs', component: RxjsCollectionComponent }
   , { path: 'Animation', component: AnimationComponent }
   , { path: 'compose', component: AnimationComponent, outlet: 'popup' }
-  , { path: 'PlugIn', loadChildren: './PlugIn/plugin.module#PluginModule' }
+  , { path: 'PlugIn', loadChildren: () => import('./PlugIn/plugin.module').then(m => m.PluginModule) }
   , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
+  , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
+  , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

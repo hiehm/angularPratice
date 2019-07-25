@@ -34,6 +34,8 @@ import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
 import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 import { AnimationComponent } from './animation/animation.component';
 import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
+import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
+import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.component';
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
 @NgModule({
@@ -61,7 +63,9 @@ import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-s
     AsyncPipeComponent,
     RxjsCollectionComponent,
     AnimationComponent,
-    LittleMouseSearchComponent
+    LittleMouseSearchComponent,
+    UrlMetadataParserComponent,
+    AcceptOtherPostComponent
     //HeroListComponent,
     //HeroDetailRComponent
   ],

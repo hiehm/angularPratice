@@ -3,18 +3,17 @@ import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEven
 import { HttpClient } from '@angular/common/http';
 import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, mapTo, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share, pairwise, race, defaultIfEmpty, every } from 'rxjs/operators';
 import { UpperCasePipe, JsonPipe } from '@angular/common';
-import { SOURCE } from '@angular/core/src/di/injector';
 @Component({
   selector: 'app-rxjs-collection',
   templateUrl: './rxjs-collection.component.html',
   styleUrls: ['./rxjs-collection.component.css']
 })
 export class RxjsCollectionComponent implements OnInit {
-  @ViewChild('CallTakeUntil') _CallTakeUntil: ElementRef;
-  @ViewChild('CallTakeLast') _CallTakeLast: ElementRef;
-  @ViewChild('BufferBtnClcik') _BufferBtnClcik: ElementRef;
-  @ViewChild('ClearMerge') _ClearMerge: ElementRef;
-  @ViewChild('ClearWindow') _ClearWindow: ElementRef;
+  @ViewChild('CallTakeUntil', { static: true }) _CallTakeUntil: ElementRef;
+  @ViewChild('CallTakeLast', { static: true }) _CallTakeLast: ElementRef;
+  @ViewChild('BufferBtnClcik', { static: true }) _BufferBtnClcik: ElementRef;
+  @ViewChild('ClearMerge', { static: true }) _ClearMerge: ElementRef;
+  @ViewChild('ClearWindow', { static: true }) _ClearWindow: ElementRef;
   private readonly API_URL = 'https://api.github.com/users';
   private readonly API_URL2 = 'https://jsonplaceholder.typicode.com/todos/';
   private searchTerms = new Subject<string>(); //宣告一個Subject

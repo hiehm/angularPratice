@@ -1,0 +1,12 @@
+
+<div contenteditable="true" (input)="changeInput($event)">
+  's'
+  <div class="metadataArea" contenteditable="false">
+    <div class="inline-block"><img width="100" height="95" [src]="this.metadataObj.image" /></div>
+    <div class="inline-block color-silver contentText">
+      <div>{{ this.metadataObj.title}}</div>
+      <div>{{this.metadataObj.url}}</div>
+      <div>{{this.metadataObj.description}}</div>
+    </div>
+  </div>
+</div>

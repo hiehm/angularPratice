@@ -70,9 +70,11 @@ export class HeroService {
     );
   }
   getHeroes(): Hero[] { //Expression: FuncName():Return Type Or Void
+
     return HEROES;
   }
   getHeroesObservable(): Observable<Hero[]> { //宣告此方法為Obervable模式
+    console.log(HEROES);
     this.messageService.add('HeroService:fetched heroes');
     return of(HEROES); //回傳方法固定為of
   }
