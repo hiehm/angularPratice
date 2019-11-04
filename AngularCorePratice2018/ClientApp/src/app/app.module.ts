@@ -1,6 +1,8 @@
 import { NgModule, ErrorHandler, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';  //ReactiveForms
@@ -36,6 +38,10 @@ import { AnimationComponent } from './animation/animation.component';
 import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
 import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
 import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.component';
+import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
+import { environment } from '../environments/environment';
+import { FirebaseHttpService } from '../Service/firebase-http.service';
+import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component';
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
 @NgModule({
@@ -65,12 +71,16 @@ import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.
     AnimationComponent,
     LittleMouseSearchComponent,
     UrlMetadataParserComponent,
-    AcceptOtherPostComponent
+    AcceptOtherPostComponent,
+    FirebaseTestComponent,
+    WebWorkerOrbComponent
     //HeroListComponent,
     //HeroDetailRComponent
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     HeroesModule, //自訂Module 順序必須優於AppRoutingModule
     BrowserAnimationsModule, //添加動畫效果模組
     ////NoopAnimationsModule,  //取消動畫效果模組
@@ -80,6 +90,7 @@ import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.
     FormsModule,
     HttpClientModule,
     PartialModule
+
   ],
  // entryComponents: [DynamicLoadingComponent],
   providers: [
@@ -93,7 +104,8 @@ import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.
       //Error 全域錯誤處理常式
       provide: ErrorHandler,
       useClass: ErrorLogHandler
-    }
+    },
+    FirebaseHttpService
     //{
     //  //APP_INITIALZER 程式執行前先行運行設定
     //  provide: APP_INITIALIZER,

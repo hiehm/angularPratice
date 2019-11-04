@@ -1,0 +1,48 @@
+<!--<ngx-slick-carousel class="carousel"
+                    #slickModal="slick-carousel"
+                    [config]="slideConfig"
+                    (init)="slickInit($event)"
+                    (breakpoint)="breakpoint($event)"
+                    (afterChange)="afterChange($event)"
+                    (beforeChange)="beforeChange($event)">
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <img src="{{ slide.img }}" style="width:200px;height:200px;">
+  </div>
+</ngx-slick-carousel>
+<button (click)="addSlide()">Add</button>
+<button (click)="removeSlide()">Remove</button>
+<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
+<button (click)="slickModal.unslick()">unslick</button>-->
+<div style="width:330px;">
+  <div class="story block-shadow">
+    <div class="d-flex align-items-center">
+      <span class="md-title mr-auto">團隊動態</span>
+      <span class="des-text text-greyblue">遊戲橘子</span>
+    </div>
+    <div class="slider-nav">
+      <ngx-slick-carousel class="carousel"
+                          #slickModal="slick-carousel"
+                          [config]="slideConfig"
+                          (init)="slickInit($event)"
+                          (breakpoint)="breakpoint($event)"
+                          (afterChange)="afterChange($event)"
+                          (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+          <img src="{{ slide.img }}" style="width:260px;height:146px;">
+        </div>
+      </ngx-slick-carousel>
+    </div>
+    <!--<div class="slider-for">
+      <div>
+        <span>1 一起去南極！亞洲首支越野滑雪長征南極點隊伍 </span>
+      </div>
+      <div>
+        <span>2 一起去南極！亞長征南極點隊伍 </span>
+      </div>
+      <div>
+        <span>3 一起去南極！亞洲滑雪長征南極點隊伍 </span>
+      </div>
+    </div>-->
+  </div>
+
+</div>

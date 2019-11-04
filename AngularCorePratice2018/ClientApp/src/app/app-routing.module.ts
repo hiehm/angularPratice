@@ -18,6 +18,9 @@ import { AnimationComponent } from './animation/animation.component';
 import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
 import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
 import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.component';
+import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
+import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component';
+
 const routes: Routes = [ //建構Routes規則
    { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
   //{ path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
@@ -39,6 +42,8 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
   , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
   , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
+  , { path: 'FireBaseTest', component: FirebaseTestComponent }
+  , { path: 'WebWorkOrb', component: WebWorkerOrbComponent }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

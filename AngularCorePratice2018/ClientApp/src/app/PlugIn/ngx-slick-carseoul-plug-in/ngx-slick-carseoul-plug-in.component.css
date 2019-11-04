@@ -1,0 +1,82 @@
+.icons-ic-arrow-slide-previous {
+  background-position: 0 -931px;
+  height: 56px;
+  width: 56px;
+}
+.icons-ic-arrow-slide-next {
+  background-position: 0 -874px;
+  height: 56px;
+  width: 56px;
+}
+
+.slick-prev {
+  background-position: 0 -931px;
+  height: 56px;
+  width: 56px;
+}
+.slick-next {
+  background-position: 0 -874px;
+  height: 56px;
+  width: 56px;
+}
+
+  .slick-next .slick-prev {
+    background-image: url("../../../assets/images/icons-saee6c367be.png");
+    background-repeat: no-repeat;
+  }
+.slick-next:hover .slick-arrow{
+  display:block;
+}
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+   color: transparent; 
+  outline: none;
+}
+/*
+  First Container
+*/
+.story {
+  overflow: hidden;
+}
+.block-shadow {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background: var(--white);
+  -webkit-box-shadow: 0 8px 16px 0 var(--slate-15);
+  box-shadow: 0 8px 16px 0 var(--slate-15);
+  position: relative;
+}
+
+/*
+  Second Container
+*/
+.story > :first-child {
+  padding: 16px 20px;
+}
+.align-items-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
+/*
+  Three Container
+*/
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+/*
+  Common
+*/
+.d-flex {
+  display: flex !important;
+}
