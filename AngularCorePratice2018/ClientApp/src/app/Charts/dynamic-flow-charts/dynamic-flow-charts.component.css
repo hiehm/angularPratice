@@ -1,21 +1,21 @@
 /* 最外層結構區域*/
-.trees{
-  float:left;
-  width:100%;
-  margin:auto;
-  display:flex;
-  overflow-y:hidden;
-  flex:1;
-  justify-content:center;
-  flex-direction:column;
-  padding:30px 0;
-  position:relative;
+.trees {
+  float: left;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  overflow-y: hidden;
+  flex: 1;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 0;
+  position: relative;
 }
 
 /* hv Class */
-.hv-container{
-  flex-grow:1;
-  justify-content:center;
+.hv-container {
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .hv-item{
@@ -31,24 +31,31 @@
   justify-content:center;
 }
 
-.hv-item-parent:after{
+.hv-item-parent:after {
   content:'';
   position:absolute;
   width:2px;
   height:25px;
-  bottom:0px;
+  bottom:0;
   left:calc(50% - 0px);
+  background-color:#000;
   transform:translateY(100%);
-  background-color:black;
 }
 
 .hv-item-children{
   display:flex;
   justify-content:center;
+}
+
+.hv-item-child{
   position:relative;
 }
 
-.hv-item-children:before{
+.hv-item .hv-item-children .hv-item-child :only-child:after {
+  content: none
+}
+
+.hv-item-child:before{
   left:calc(50% + 0px);
   top:0;
   transform:translateY(-100%);
@@ -56,19 +63,15 @@
   height:25px;
   content:'';
   position:absolute;
-  background-color:#252526;
-}
-
-.hv-item-children:after{
-
+  background-color:#000;
 }
 
 /*div content */
 div.simple-card-not-highlighted {
   /*margin: 0px 20px 10px 20px;*/
-  padding:30px;
-  width: 100px;
+  padding: 30px;
+  min-width: 100px;
   border: solid 2px black;
   border-radius: 7px;
-  text-align:center;
+  text-align: center;
 }
