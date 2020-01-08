@@ -45,75 +45,74 @@ import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
 @NgModule({
-  declarations: [
-    AppComponent,
-    HerosComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    VoteComponent,
-    VoteTakerComponent,
-    HighlightDirective,
-    CutStructDirective,
-    HeroSearchComponent,
-    ValidDemoComponent,
-    ValidReactiveFormComponent,
-    HttpclientTestComponent,
-    SubDashboardComponent,
-    MyControlComponentComponent,
-    MyControlMasterComponent,
-    ExportDirectiveDirective,
-    DynamicLoadingComponent,
-    ChangeDectorRefComponent,
-    ChangeDetectionStrategyComponent,
-    AsyncPipeComponent,
-    RxjsCollectionComponent,
-    AnimationComponent,
-    LittleMouseSearchComponent,
-    UrlMetadataParserComponent,
-    AcceptOtherPostComponent,
-    FirebaseTestComponent,
-    WebWorkerOrbComponent
-    //HeroListComponent,
-    //HeroDetailRComponent
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    HeroesModule, //自訂Module 順序必須優於AppRoutingModule
-    BrowserAnimationsModule, //添加動畫效果模組
-    ////NoopAnimationsModule,  //取消動畫效果模組
- 
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    PartialModule
+    declarations: [
+        AppComponent,
+        HerosComponent,
+        HeroDetailComponent,
+        MessagesComponent,
+        DashboardComponent,
+        VoteComponent,
+        VoteTakerComponent,
+        HighlightDirective,
+        CutStructDirective,
+        HeroSearchComponent,
+        ValidDemoComponent,
+        ValidReactiveFormComponent,
+        HttpclientTestComponent,
+        SubDashboardComponent,
+        MyControlComponentComponent,
+        MyControlMasterComponent,
+        ExportDirectiveDirective,
+        DynamicLoadingComponent,
+        ChangeDectorRefComponent,
+        ChangeDetectionStrategyComponent,
+        AsyncPipeComponent,
+        RxjsCollectionComponent,
+        AnimationComponent,
+        LittleMouseSearchComponent,
+        UrlMetadataParserComponent,
+        AcceptOtherPostComponent,
+        FirebaseTestComponent,
+        WebWorkerOrbComponent,
+        //HeroListComponent,
+        //HeroDetailRComponent
+    ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        HeroesModule, //自訂Module 順序必須優於AppRoutingModule
+        BrowserAnimationsModule, //添加動畫效果模組
+        ////NoopAnimationsModule,  //取消動畫效果模組
 
-  ],
- // entryComponents: [DynamicLoadingComponent],
-  providers: [
-    {
-      //Http 請求前與回應後全域處理常式
-      provide: HTTP_INTERCEPTORS,
-      useClass: AppHttpInterceporService,
-      multi: true,
-    },
-    {
-      //Error 全域錯誤處理常式
-      provide: ErrorHandler,
-      useClass: ErrorLogHandler
-    },
-    FirebaseHttpService
-    //{
-    //  //APP_INITIALZER 程式執行前先行運行設定
-    //  provide: APP_INITIALIZER,
-    //  useFactory: (configService: AppINITIALZERService) => () => configService.initData(),
-    //  deps: [AppINITIALZERService],
-    //  multi: true
-    //}
-  ],
-  bootstrap: [AppComponent]
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        PartialModule
+    ],
+    // entryComponents: [DynamicLoadingComponent],
+    providers: [
+        {
+            //Http 請求前與回應後全域處理常式
+            provide: HTTP_INTERCEPTORS,
+            useClass: AppHttpInterceporService,
+            multi: true,
+        },
+        {
+            //Error 全域錯誤處理常式
+            provide: ErrorHandler,
+            useClass: ErrorLogHandler
+        },
+        FirebaseHttpService
+        //{
+        //  //APP_INITIALZER 程式執行前先行運行設定
+        //  provide: APP_INITIALIZER,
+        //  useFactory: (configService: AppINITIALZERService) => () => configService.initData(),
+        //  deps: [AppINITIALZERService],
+        //  multi: true
+        //}
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

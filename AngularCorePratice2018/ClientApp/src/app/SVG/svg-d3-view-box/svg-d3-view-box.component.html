@@ -1,0 +1,53 @@
+<div>
+  <h2>SVG ViewPort & ViewBox </h2>
+</div>
+<h3>ViewPort</h3>
+<svg class="half">
+  <path d="M50,10 A40,40,1,1,1,50,90 A40,40,1,1,1,50,10 M30,40 Q36,35,42,40 M58,40 Q64,35,70,40 M30,60 Q50,75,70,60 Q50,75,30,60" />
+</svg>
+
+
+<h3>ViewBox</h3>
+<!--viewbox="min-x min-y width height-->
+<svg class="half" viewBox="-1 -1 162 92">
+  <defs>
+    <path id="smiley" d="M50,10 A40,40,1,1,1,50,90 A40,40,1,1,1,50,10 M30,40 Q36,35,42,40 M58,40 Q64,35,70,40 M30,60 Q50,75,70,60 Q50,75,30,60" />
+  </defs>
+  <!--width > height , preserveAspectRatio=(xy,meet) 等比例縮放-->
+  <rect x="0" y="0" width="20" height="10"><title>xMidYMid meet</title></rect>
+  <svg preserveAspectRatio="xMidYMid meet" x="0" y="0" viewBox="0 0 100 100" width="20" height="10"><use href="#smiley" /></svg>
+  <rect x="25" y="0" width="20" height="10"><title>xMinYMid meet</title></rect>
+  <svg preserveAspectRatio="xMinYMid meet" x="25" y="0" viewBox="0 0 100 100" width="20" height="10"><use href="#smiley" /></svg>
+  <rect x="50" y="0" width="20" height="10"><title>xMaxYMid meet</title></rect>
+  <svg preserveAspectRatio="xMaxYMid meet" x="50" y="0" viewBox="0 0 100 100" width="20" height="10">
+    <use href="#smiley" />
+  </svg>
+
+  <!--width > height , preserveAspectRatio=(xy,slice) 原圖大小裁切-->
+  <rect x="0" y="15" width="20" height="10"><title>xMinYMin slice</title></rect>
+  <svg preserveAspectRatio="xMinYMin slice" x="0" y="15" viewBox="0 0 100 100" width="20" height="10"><use href="#smiley" /></svg>
+  <rect x="25" y="15" width="20" height="10"><title>xMidYMid slice</title></rect>
+  <svg preserveAspectRatio="xMidYMid slice" x="25" y="15" viewBox="0 0 100 100" width="20" height="10"><use href="#smiley" /></svg>
+  <rect x="50" y="15" width="20" height="10"><title>xMaxYMax slice</title></rect>
+  <svg preserveAspectRatio="xMaxYMax slice" x="50" y="15" viewBox="0 0 100 100" width="20" height="10"><use href="#smiley" /></svg>
+
+  <!--height > width , preserveAspectRatio=(xy,meet)-->
+  <rect x="75" y="0" width="10" height="25"><title>xMinYMin meet</title></rect>
+  <svg preserveAspectRatio="xMinYMin meet" x="75" y="0" viewBox="0 0 100 100" width="10" height="25"><use href="#smiley" /></svg>
+  <rect x="90" y="0" width="10" height="25"><title>xMidYMid meet</title></rect>
+  <svg preserveAspectRatio="xMinYMid meet" x="90" y="0" viewBox="0 0 100 100" width="10" height="25"><use href="#smiley" /></svg>
+  <rect x="105" y="0" width="10" height="25"><title>xMidYMax meet</title></rect>
+  <svg preserveAspectRatio="xMinYMax meet" x="105" y="0" viewBox="0 0 100 100" width="10" height="25"><use href="#smiley" /></svg>
+
+  <!--height > width , preserveAspectRatio=(xy,slice)-->
+  <rect x="120" y="0" width="10" height="25"><title>xMinYMin slice</title></rect>
+  <svg preserveAspectRatio="xMinYMin slice" x="120" y="0" viewBox="0 0 100 100" width="10" height="25"><use href="#smiley" /></svg>
+  <rect x="135" y="0" width="10" height="25"><title>xMinYMin slice</title></rect>
+  <svg preserveAspectRatio="xMidYMid slice" x="135" y="0" viewBox="0 0 100 100" width="10" height="25"><use href="#smiley" /></svg>
+  <rect x="150" y="0" width="10" height="25"><title>xMinYMin slice</title></rect>
+  <svg preserveAspectRatio="xMaxYMin slice" x="150" y="0" viewBox="0 0 100 100" width="10" height="25"><use href="#smiley" /></svg>
+
+  <!--svg > use ,default-->
+  <rect x="0" y="30" width="160" height="150"><title>svg > use , default </title></rect>
+  <svg x="0" y="30" viewBox="0 0 100 100" width="160" height="60"><use href="#smiley" /></svg>
+</svg>

@@ -1,0 +1,47 @@
+<svg class="title">
+  <g>
+    <text x="20" y="20" dx="5" dy="5">Defs 可重複引用元素</text>
+    <text x="20" y="40" dx="5" dy="5">Marker 貼符元素</text>
+  </g>
+</svg>
+<svg class="half">
+  <defs>
+    <!--marker 貼符元素-->
+    <marker id="arrow"
+            markerUnits="strokeWidth"
+            markerWidth="12"
+            markerHeight="12"
+            viewBox="0 0 12 12"
+            refX="6"
+            refY="6"
+            orient="auto">
+      <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: green"></path>
+    </marker>
+  </defs>
+  <g id="layer03">
+    <line x1="20" y1="0" x2="200" y2="50" stroke="red" stroke-width="2" marker-end="url(#arrow)" />
+    <line x1="200" y1="0" x2="50" y2="200" stroke="red" stroke-width="2" marker-end="url(#arrow)" />
+  </g>
+</svg>
+<svg class="title">
+  <g>
+    <text x="20" y="20" dx="5" dy="5">Defs 可重複引用元素</text>
+    <text x="20" y="40" dx="5" dy="5">use 圖形重複引用元素</text>
+  </g>
+</svg>
+<svg class="half">
+  <defs>
+    <g id="shape">
+      <rect x="50" y="50" width="50" height="50" />
+      <circle cx="50" cy="50" r="50" />
+    </g>
+  </defs>
+  <use href="#shape" x="50" y="50" />
+  <use href="#shape" x="200" y="50" />
+</svg>
+<p>
+  
+</p>
+<p>
+
+</p>

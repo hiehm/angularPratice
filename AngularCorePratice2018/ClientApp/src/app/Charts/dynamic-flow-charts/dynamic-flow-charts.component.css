@@ -1,0 +1,74 @@
+/* 最外層結構區域*/
+.trees{
+  float:left;
+  width:100%;
+  margin:auto;
+  display:flex;
+  overflow-y:hidden;
+  flex:1;
+  justify-content:center;
+  flex-direction:column;
+  padding:30px 0;
+  position:relative;
+}
+
+/* hv Class */
+.hv-container{
+  flex-grow:1;
+  justify-content:center;
+}
+
+.hv-item{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:50px;
+}
+
+.hv-item-parent{
+  margin-bottom:50px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+.hv-item-parent:after{
+  content:'';
+  position:absolute;
+  width:2px;
+  height:25px;
+  bottom:0px;
+  left:calc(50% - 0px);
+  transform:translateY(100%);
+  background-color:black;
+}
+
+.hv-item-children{
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.hv-item-children:before{
+  left:calc(50% + 0px);
+  top:0;
+  transform:translateY(-100%);
+  width:2px;
+  height:25px;
+  content:'';
+  position:absolute;
+  background-color:#252526;
+}
+
+.hv-item-children:after{
+
+}
+
+/*div content */
+div.simple-card-not-highlighted {
+  /*margin: 0px 20px 10px 20px;*/
+  padding:30px;
+  width: 100px;
+  border: solid 2px black;
+  border-radius: 7px;
+  text-align:center;
+}

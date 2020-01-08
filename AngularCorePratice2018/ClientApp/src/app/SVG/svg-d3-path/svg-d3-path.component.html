@@ -1,0 +1,43 @@
+<div>
+  <h2>PATH</h2>
+  <!--M:(x y) 起始點-->
+  <!--L:(x y) 從目前點畫直線到指定的 x,y-->
+  <!--H:(x)   從目前點畫水平線到指定的x-->
+  <!--V:(y)   從目前點畫垂直線到指定的y-->
+  <!--C:(x1 y1 x2 y2 x y) 從目前點畫貝茲曲線到指定點,其中x1,y1 & x2,y2為 curse(控制點)-->
+  <!--S:(x2 y2 x y)       從目前點畫反射的貝茲曲線到指定點的 x y 座標,其中 x2,y2為反射的控制點-->
+  <!--Q:(x1 y1 x y)       從目前點畫二次貝茲曲線道指定點的x y 座標,其中 x1,y1為控制點-->
+  <!--T:(x y)             搭配Q使用,從目前點畫反射二次貝茲曲線到指定點的 x,y座標-->
+  <!--A:(rx ry x-axis-rotation large-arc-flag sweep-flag x y)
+         從目前點畫橢圓到指定點 x y
+         rx,ry為橢圓的 x軸及 y軸半徑,
+         x-axis-rotation 是弧線與 x軸的旋轉角度
+         large-arc-flag  則設定 1 最大角弧線或是 0 最小角弧線
+         sweep-flag      則設定 1 順時針方向 , 0逆時針方向 -->
+  <div class="w-400 fl">
+    <h3>A</h3>
+    <svg>
+      <path d="M20 150 L80 0 L140 150 M38 100 L120 100"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke="#03dffc" stroke-width="5px" fill="none"></path>
+    </svg>
+  </div>
+  <div class="w-400 fl">
+    <h3>B</h3>
+    <svg>
+      <path d="M20 0 V150 M20 2 H75 M75 2 A1.1 1 0 0 1 75 75 M20 75 H75 M75 75 A1.1 1 0 0 1 75 148 M20 148 H75"
+            stroke-linecap="round"
+            stroke-linejoin="round" stroke="#03dffc" stroke-width="5px" fill="none"></path>
+    </svg>
+  </div>
+  <div class="w-400 fl">
+    <h3>C</h3>
+    <svg>
+      <!--<path d="M100 25 A1 1 0 0 0 80 25"
+            stroke-linejoin="miter" stroke="#03dffc" stroke-width="5px" fill="none"></path>-->
+      <ellipse cx="220" cy="100" rx="190" ry="20"
+                stroke="#03dffc" stroke-width="5px" fill="none"/>
+    </svg>
+  </div>
+</div>
