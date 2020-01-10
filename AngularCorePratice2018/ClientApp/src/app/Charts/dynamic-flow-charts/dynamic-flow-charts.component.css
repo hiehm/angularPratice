@@ -8,7 +8,7 @@
   flex: 1;
   justify-content: center;
   flex-direction: column;
-  padding: 30px 0;
+  padding: 50px 0;
   position: relative;
 }
 
@@ -89,6 +89,91 @@
 .hv-item .hv-item-children .hv-item-child:last-child:after{
   width:calc(50% + 2px);
 }
+
+/* popverbox */
+
+/* add-Button top*/
+.add-top-button {
+  width: 40px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #51cc92;
+  position: absolute;
+  top:0px;
+  border-style: none;
+  left: 49%;
+  box-shadow: 0 3px 6px rgba(81,204,146,0.3);
+  z-index:999;
+  transform:translateY(-120%);
+}
+
+.add-top-button:before {
+  content: '';
+  position: absolute;
+  height: 12px;
+  width: 2px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: white;
+}
+
+.add-top-button:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: white;
+}
+
+/* add-Button bottom */
+.add-button{
+  width:40px;
+  height:28px;
+  cursor:pointer;
+  border-radius:20px;
+  background-color:#51cc92;
+  position:absolute;
+  bottom:-10px;
+  border-style:none;
+  left:42%;
+  box-shadow:0 3px 6px rgba(81,204,146,0.3);
+}
+
+.add-button:before{
+  content:'';
+  position:absolute;
+  height:12px;
+  width:2px;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  background-color:white;
+}
+
+.add-button:after{
+  content:'';
+  position:absolute;
+  height:2px;
+  width:12px;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  background-color:white;
+}
+
 
 /*div content */
 div.simple-card-not-highlighted {
