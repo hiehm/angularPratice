@@ -100,12 +100,12 @@
   border-radius: 20px;
   background-color: #51cc92;
   position: absolute;
-  top:0px;
+  top:-10px;
   border-style: none;
-  left: 49%;
   box-shadow: 0 3px 6px rgba(81,204,146,0.3);
   z-index:999;
-  transform:translateY(-120%);
+  /*定位應用技巧*/
+  right:calc(50% - 20px);
 }
 
 .add-top-button:before {
@@ -185,4 +185,10 @@ div.simple-card-not-highlighted {
   /*margin-bottom:10px;*/
   margin-left:20px;
   margin-right:20px;
+}
+
+
+/* Common */
+.dis-none{
+  display:none;
 }

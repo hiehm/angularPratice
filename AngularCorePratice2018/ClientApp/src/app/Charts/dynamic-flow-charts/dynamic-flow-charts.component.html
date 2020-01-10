@@ -3,8 +3,8 @@
     <!--appNode-->
     <div class="hv-item">
       <div class="hv-item-parent">
-        <div class="simple-card-not-highlighted">
-          <button class="add-top-button" id="addTopButton"></button>
+        <div class="simple-card-not-highlighted" (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)">
+          <button class="add-top-button dis-none" id="addTopButton"></button>
           <div>MATT</div>
         </div>
       </div>
