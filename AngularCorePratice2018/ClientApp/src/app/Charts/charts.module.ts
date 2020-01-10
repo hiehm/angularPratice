@@ -6,7 +6,7 @@ import { NgxPieChartComponent } from './ngx-pie-chart/ngx-pie-chart.component';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsRoutes } from '../Charts/charts.routing';
 import { DynamicFlowChartsComponent } from './dynamic-flow-charts/dynamic-flow-charts.component';
-
+import { DynamicFlowShowButtonDirective } from '../../Directive/dynamic-flow-show-button.directive';
 
 
 
@@ -14,7 +14,8 @@ import { DynamicFlowChartsComponent } from './dynamic-flow-charts/dynamic-flow-c
     declarations: [
         ChartsComponent,
         NgxPieChartComponent,
-        DynamicFlowChartsComponent
+        DynamicFlowChartsComponent,
+        DynamicFlowShowButtonDirective
     ],
     imports: [
         CommonModule,

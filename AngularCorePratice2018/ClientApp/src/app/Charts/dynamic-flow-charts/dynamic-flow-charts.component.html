@@ -3,8 +3,10 @@
     <!--appNode-->
     <div class="hv-item">
       <div class="hv-item-parent">
-        <div class="simple-card-not-highlighted" (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)">
+        <!--(mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"-->
+        <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'both'">
           <button class="add-top-button dis-none" id="addTopButton"></button>
+          <button class="add-button dis-none" id="addBottomButton"></button>
           <div>MATT</div>
         </div>
       </div>
@@ -21,8 +23,8 @@
               <div class="hv-item-child">
                 <div class="hv-item">
                   <div class="hv-item-parent">
-                    <div class="simple-card-not-highlighted">            
-                      <button class="add-button" id="addButton"></button>
+                    <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'bottom'">            
+                      <button class="add-button dis-none" id="addButton"></button>
                       <div>MIKE</div>
                     </div>
                   </div>

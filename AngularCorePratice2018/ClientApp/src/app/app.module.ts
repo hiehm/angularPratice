@@ -73,7 +73,7 @@ import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component
         UrlMetadataParserComponent,
         AcceptOtherPostComponent,
         FirebaseTestComponent,
-        WebWorkerOrbComponent,
+        WebWorkerOrbComponent
         //HeroListComponent,
         //HeroDetailRComponent
     ],

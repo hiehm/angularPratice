@@ -135,17 +135,18 @@
 }
 
 /* add-Button bottom */
-.add-button{
-  width:40px;
-  height:28px;
-  cursor:pointer;
-  border-radius:20px;
-  background-color:#51cc92;
-  position:absolute;
-  bottom:-10px;
-  border-style:none;
-  left:42%;
-  box-shadow:0 3px 6px rgba(81,204,146,0.3);
+.add-button {
+  width: 40px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #51cc92;
+  position: absolute;
+  bottom: -10px;
+  border-style: none;
+  right: calc(50% - 20px);
+  box-shadow: 0 3px 6px rgba(81,204,146,0.3);
+  z-index:999;
 }
 
 .add-button:before{
