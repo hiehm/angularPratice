@@ -11,15 +11,4 @@ export class DynamicFlowChartsComponent implements OnInit {
 
     ngOnInit() {
     }
-
-    //預計寫成 directive
-    mouseenter(el: MouseEvent) {
-        const _srcEl = (el.srcElement as HTMLElement).children[0];
-        this.renderer2.removeClass(_srcEl, 'dis-none');
-    }
-
-    mouseleave(el: MouseEvent) {
-        const _srcEl = (el.srcElement as HTMLElement).children[0];
-        this.renderer2.addClass(_srcEl, 'dis-none');
-    }
 }
