@@ -1,6 +1,8 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FlowTreeList } from '../../../Utility/interfaces/Charts/flow-tree-list';
-import { id } from '@swimlane/ngx-charts/release/utils';
+import * as _ from 'lodash';
+import { FlowTreeNode } from '../../../Utility/interfaces/Charts/flow-tree-node';
+import { DynamicFlowService } from '../../../Service/dynamic-flow.service';
 
 @Component({
     selector: 'app-dynamic-flow-charts',
@@ -9,6 +11,7 @@ import { id } from '@swimlane/ngx-charts/release/utils';
 })
 export class DynamicFlowChartsComponent implements OnInit {
     data: FlowTreeList;
+    lastId: number = 0;
     constructor(private renderer2: Renderer2) { }
 
     ngOnInit() {
@@ -45,14 +48,22 @@ export class DynamicFlowChartsComponent implements OnInit {
                 }, {
                     name: 'Spear',
                     id: 3,
-                    children: []
+                    children: [{
+                        name: 'Sp 1',
+                        id: 15,
+                        children: []
+                    }]
                 }, {
                     name: 'Wpear',
                     id: 4,
                     children: [{
                         name: 'Wish',
                         id: 7,
-                        children: []
+                        children: [{
+                            name: 'Wi 1',
+                            id: 18,
+                            children:[]
+                        }]
                     }, {
                         name: 'Wand',
                         id: 8,
@@ -61,5 +72,21 @@ export class DynamicFlowChartsComponent implements OnInit {
                 }]
             }]
         };
+        this.findLastId(this.data.children[0]);
+        DynamicFlowService.last_Id = this.lastId;
+        console.log(DynamicFlowService.last_Id);
+    }
+
+    //recursive find last id
+    private findLastId(flowNodeArray: FlowTreeNode) {
+        if (flowNodeArray.children.length <= 0) {
+            if (flowNodeArray.id > this.lastId) {
+                this.lastId = flowNodeArray.id;
+            }
+        } else {
+            for (let v in flowNodeArray.children) {
+                this.findLastId(flowNodeArray.children[v]);
+            }
+        }
     }
 }

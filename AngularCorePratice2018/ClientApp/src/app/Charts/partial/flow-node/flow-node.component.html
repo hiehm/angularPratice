@@ -3,7 +3,7 @@
   <div class="hv-item-parent" *ngIf="node.children.length>0">
     <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'both'">
       <button [hidden]="node_index!==0" class="add-top-button dis-none" id="addTopButton"></button>
-      <button class="add-button dis-none" id="addBottomButton" (click)="addChild(node.id)"></button>
+      <button class="add-button dis-none" id="addBottomButton" (click)="addChild(node)"></button>
       <div>{{node.name}}</div>
     </div>
   </div>
@@ -16,7 +16,7 @@
       <app-flow-node *ngIf="child.children.length>0" [node]="child"></app-flow-node>
       <div class="hv-item" *ngIf="child.children.length===0">
         <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'bottom'">
-          <button class="add-button dis-none" id="addBottomButton" (click)="addChild(child.id)"></button>
+          <button class="add-button dis-none" id="addBottomButton" (click)="addChild(child)"></button>
           <div>{{child.name}}</div>
         </div>
       </div>
