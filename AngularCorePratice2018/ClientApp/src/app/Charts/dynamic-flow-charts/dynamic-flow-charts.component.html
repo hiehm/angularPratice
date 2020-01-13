@@ -1,3 +1,4 @@
+<!--reference https://stackblitz.com/edit/dynamic-flow-chart?file=src%2Fapp%2Fnode%2Fnode.component.html-->
 <div class="trees">
   <div class="hv-container">
     <!--appNode-->
@@ -23,7 +24,7 @@
               <div class="hv-item-child">
                 <div class="hv-item">
                   <div class="hv-item-parent">
-                    <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'bottom'">            
+                    <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'bottom'">
                       <button class="add-button dis-none" id="addButton"></button>
                       <div>MIKE</div>
                     </div>
@@ -111,5 +112,12 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<hr />
+
+<div class="trees">
+  <div class="hv-container">
+    <app-flow-node *ngFor="let node of data.children;let index =index" [node]="node" [node_index]="index"></app-flow-node>
   </div>
 </div>
