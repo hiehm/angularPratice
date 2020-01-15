@@ -113,9 +113,22 @@
   </div>
 </div>
 <hr />-->
+<div class="text-center">
+  Change Mode: <select (change)="onModeChange($event.target.value)">
+    <option value="1">標準版</option>
+    <option value="2">瀏覽數據</option>
+  </select>
+</div>
 
 <div class="trees">
   <div class="hv-container">
-    <app-flow-node *ngFor="let node of data.children;let index =index" [node]="node" [node_index]="index"></app-flow-node>
+    <ng-container [ngSwitch]="mode">
+      <ng-container *ngSwitchCase="1">
+        <app-flow-node *ngFor="let node of data.children;let index =index" [node]="node" [node_index]="index"></app-flow-node>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <app-flow-node2 *ngFor="let node of data.children;let index =index" [node]="node" [node_index]="index"></app-flow-node2>
+      </ng-container>
+    </ng-container>
   </div>
 </div>

@@ -193,3 +193,7 @@ div.simple-card-not-highlighted {
 .dis-none{
   display:none;
 }
+
+div.text-center{
+  text-align:center;
+}

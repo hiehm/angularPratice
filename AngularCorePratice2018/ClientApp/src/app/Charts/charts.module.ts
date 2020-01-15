@@ -8,6 +8,7 @@ import { ChartsRoutes } from '../Charts/charts.routing';
 import { DynamicFlowChartsComponent } from './dynamic-flow-charts/dynamic-flow-charts.component';
 import { DynamicFlowShowButtonDirective } from '../../Directive/dynamic-flow-show-button.directive';
 import { FlowNodeComponent } from './partial/flow-node/flow-node.component';
+import { FlowNode2Component } from './partial/flow-node2/flow-node2.component';
 
 
 
@@ -17,7 +18,8 @@ import { FlowNodeComponent } from './partial/flow-node/flow-node.component';
         NgxPieChartComponent,
         DynamicFlowChartsComponent,
         DynamicFlowShowButtonDirective,
-        FlowNodeComponent
+        FlowNodeComponent,
+        FlowNode2Component
     ],
     imports: [
         CommonModule,

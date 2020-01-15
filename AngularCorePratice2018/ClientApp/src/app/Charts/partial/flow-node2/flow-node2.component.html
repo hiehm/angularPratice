@@ -1,0 +1,26 @@
+<div class="hv-item">
+  <!--type 1-->
+  <div class="hv-item-parent" *ngIf="node.children.length>0">
+    <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'both'" (click)="simpleClick(ts)" #ts>
+      <button [hidden]="node_index!==0" class="add-top-button dis-none" id="addTopButton"></button>
+      <button class="add-button dis-none" id="addBottomButton" (click)="addChild(node)"></button>
+      <div class="text-align-s">{{node.name}}</div>
+      <div class="simple-bottom">vvvvvvvvvvvvvvvvvvvvvvvvvvvv</div>
+    </div>
+  </div>
+
+  <!--type 2-->
+  <!--type 3-->
+  <div class="hv-item-children" *ngIf="node.children.length>0">
+    <div class="hv-item-child" *ngFor="let child of node.children">
+      <!--keypoint-->
+      <app-flow-node2 *ngIf="child.children.length>0" [node]="child"></app-flow-node2>
+      <div class="hv-item" *ngIf="child.children.length===0">
+        <div class="simple-card-not-highlighted" appDynamicFlowShowButton [mode]="'bottom'" (click)="simpleClick(ts)" #ts>
+          <button class="add-button dis-none" id="addBottomButton" (click)="addChild(child)"></button>
+          <div class="text-align-s">{{child.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

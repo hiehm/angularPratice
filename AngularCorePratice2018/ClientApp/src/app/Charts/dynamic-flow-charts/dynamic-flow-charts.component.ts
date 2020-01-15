@@ -12,6 +12,7 @@ import { DynamicFlowService } from '../../../Service/dynamic-flow.service';
 export class DynamicFlowChartsComponent implements OnInit {
     data: FlowTreeList;
     lastId: number = 0;
+    mode: number = 1;
     constructor(private renderer2: Renderer2) { }
 
     ngOnInit() {
@@ -75,6 +76,11 @@ export class DynamicFlowChartsComponent implements OnInit {
         this.findLastId(this.data.children[0]);
         DynamicFlowService.last_Id = this.lastId;
         console.log(DynamicFlowService.last_Id);
+    }
+
+    onModeChange(val: any) {
+        this.mode = val;
+        console.log(val);
     }
 
     //recursive find last id
