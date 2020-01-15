@@ -39,7 +39,7 @@
     height: 25px;
     bottom: 0;
     left: calc(50% - 0px);
-    background-color: #000;
+    background-color: #a2b1c1;
     transform: translateY(100%);
   }
 
@@ -67,7 +67,7 @@
     height: 25px;
     content: '';
     position: absolute;
-    background-color: #000;
+    background-color: #a2b1c1;
   }
 
   .hv-item-child:after {
@@ -76,7 +76,7 @@
     height: 2px;
     content: '';
     position: absolute;
-    background-color: #000;
+    background-color: #a2b1c1;
     left: 0;
     width: calc(100%);
   }
@@ -177,17 +177,28 @@
 
 
 /*div content */
+div.simple-container{
+  margin:3px
+}
+
+
 div.simple-card-not-highlighted {
   padding: 30px;
   min-width: 100px;
-  border: solid 2px black;
-  border-radius: 7px;
+  border-radius: 20px;
   text-align: center;
   /*margin-bottom:10px;*/
   margin-left: 20px;
   margin-right: 20px;
+  background-color: #ff7908;
+  color: white;
+
 }
 
+div.simple-box-shadow {
+  border:solid 5px #51cc92;
+  box-shadow: 6px 6px 8px rgba(20%,20%,40%,0.5),inset 0px 0px 0px 2px white;
+}
 
 /* Common */
 .dis-none {
