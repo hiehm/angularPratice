@@ -19,7 +19,7 @@ export class FirebaseHttpService {
   object<T>(url: string, config: BaseHttpConfig = { isKey: true }): Observable<T> | Observable<any> {
     const req = this._db.object(url);
     return config.isKey ?
-      req.snapshotChanges().pipe(map(action => ({ key: action.key, ...action.payload.val() }))) :
+        req.snapshotChanges().pipe(map(action => ({ key: action.key, ...action.payload.val() as {} }))) :
       req.valueChanges();
   }
 
@@ -27,7 +27,7 @@ export class FirebaseHttpService {
   list<T>(url: string, config: BaseHttpConfig = { isKey: true }): Observable<T> | Observable<any> {
     const req = this._db.list(url);
     return config.isKey ?
-      req.snapshotChanges().pipe(map(actions => actions.map(action => ({ key: action.key, ...action.payload.val() })))) :
+        req.snapshotChanges().pipe(map(actions => actions.map(action => ({ key: action.key, ...action.payload.val() as {} })))) :
       req.valueChanges();
   }
 }

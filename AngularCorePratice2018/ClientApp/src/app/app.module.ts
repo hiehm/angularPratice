@@ -89,7 +89,8 @@ import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-        PartialModule
+        PartialModule,
+
     ],
     // entryComponents: [DynamicLoadingComponent],
     providers: [
