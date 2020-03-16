@@ -1,5 +1,6 @@
-import { ErrorHandler } from "@angular/core"; //引用錯誤處理常式
+import { ErrorHandler, Injectable } from "@angular/core"; //引用錯誤處理常式
 
+@Injectable()
 export class ErrorLogHandler implements ErrorHandler {
   //實作Error Handler Method
   handleError(error: any): void {
