@@ -12,6 +12,7 @@ import { NgxSlickCarseoulPlugInComponent } from './ngx-slick-carseoul-plug-in/ng
 import { Calendar6Component } from './calendar6/calendar6.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { Calendar6CustomWeekModeComponent } from './calendar6-custom-week-mode/calendar6-custom-week-mode.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     PluginComponent,
     NgxImageCropperPluginComponent,
     NgxSlickCarseoulPlugInComponent,
-    Calendar6Component
+    Calendar6Component,
+    Calendar6CustomWeekModeComponent
   ],
   imports: [
     CommonModule,
