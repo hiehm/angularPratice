@@ -23,6 +23,7 @@ import {
     CalendarView
 } from 'angular-calendar';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { subHours } from 'date-fns/fp';
 const colors: any = {
     red: {
         primary: '#ad2121',
@@ -46,12 +47,15 @@ const colors: any = {
 })
 export class Calendar6CustomWeekModeComponent implements OnInit {
     @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
+   
     constructor(private modal: NgbModal) { }
 
     ngOnInit(): void {
         //subDay 從給定天數減去指定天數 (startDay,amount)
         //startOfDay 取出指定天數的整天時間
-        console.log(subDays(startOfDay(new Date()), 10));
+        console.log(addHours(startOfDay(new Date()), 9).getHours());
+        console.log(addHours(startOfDay(new Date()), 10).getHours());
+        console.log(addHours(startOfDay(new Date()), 11).getHours());
     }
 
     view: CalendarView = CalendarView.Week;
@@ -107,8 +111,9 @@ export class Calendar6CustomWeekModeComponent implements OnInit {
         },
         {
             start: startOfDay(new Date()),
+            end: addHours(startOfDay(new Date()),2),
             title: 'An event with no end date',
-            color: colors.yellow,
+            color: colors.blue,
             actions: this.actions
         },
         {
@@ -129,6 +134,32 @@ export class Calendar6CustomWeekModeComponent implements OnInit {
                 afterEnd: true
             },
             draggable: true
+        },
+        {
+            title: 'Draggable event',
+            color: colors.yellow,
+            start: addHours(startOfDay(new Date()), 4),
+            end: addHours(startOfDay(new Date()),6),
+            draggable: true
+        },
+        {
+            title: 'Draggable event',
+            color: colors.red,
+            start: addHours(startOfDay(new Date()), 5),
+            end: addHours(startOfDay(new Date()), 7),
+            draggable: true
+        },
+
+        {
+            title: 'Draggable event',
+            color: colors.yellow,
+            start: new Date(),
+            draggable: true
+        },
+        {
+            title: 'A non draggable event',
+            color: colors.blue,
+            start: new Date()
         }
     ];
 

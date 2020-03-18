@@ -8,7 +8,7 @@ import { DynamicFlowService } from '../../../../Service/dynamic-flow.service';
   styleUrls: ['./flow-node2.component.css']
 })
 export class FlowNode2Component implements OnInit {
-    @Input() node: string;
+    @Input() node: any;
     @Input() node_index?: number;
     tempData: FlowTreeNode;
     constructor(private _renderer: Renderer2) { }
