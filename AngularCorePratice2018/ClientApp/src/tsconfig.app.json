@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
     //"strictNullChecks": true, //設定參數加入 |Null |undefined
     "outDir": "../out-tsc/app",
