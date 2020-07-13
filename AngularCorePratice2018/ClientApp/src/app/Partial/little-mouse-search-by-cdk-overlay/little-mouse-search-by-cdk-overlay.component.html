@@ -1,0 +1,11 @@
+<div class="SearchBox">
+  <div class="SearchContent" contenteditable="true" #searchContent  (keyup)="littleMouseSearch($event)">
+  </div>
+  <div [ngClass]="_searchUl?'show':'hide'">
+    <ul #searchData>
+      <li *ngFor="let item of _data" (click)="getSearchName(item)">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+</div>

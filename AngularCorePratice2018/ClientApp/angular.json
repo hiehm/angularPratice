@@ -34,7 +34,20 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/slick-carousel/slick/slick.min.js"
             ],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "webWorkerTsConfig": "tsconfig.worker.json",
+            "allowedCommonJsDependencies": [
+              "dom-set",
+              "dom-plane",
+              "@firebase/app",
+              "@firebase/database",
+              "@firebase/component",
+              "@firebase/util",
+              "firebase/app",
+              "util",
+              "angular-calendar/date-adapters/date-fns",
+              "calendar-utils/date-adapters/date-fns",
+              "@mattlewis92/dom-autoscroller"
+            ]
           },
           "configurations": {
             "production": {

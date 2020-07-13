@@ -22,45 +22,46 @@ import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
 import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component';
 
 const routes: Routes = [ //建構Routes規則
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
-    //{ path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
-    , { path: 'dashboard', component: DashboardComponent }
-    , { path: 'HttpClientTest', component: HttpclientTestComponent }
-    , { path: 'VoteTaker', component: VoteTakerComponent }
-    , { path: 'ValidDemo', component: ValidDemoComponent }
-    , { path: 'ValidReactiveDemo', component: ValidReactiveFormComponent }
-    , { path: 'detail/:id', component: HeroDetailComponent }
-    , { path: 'MyCustomControl', component: MyControlMasterComponent }
-    , { path: 'DynamicLoading', component: DynamicLoadingComponent }
-    , { path: 'ChangeDectorRef', component: ChangeDectorRefComponent }
-    , { path: 'ChangeDetectionStrategy', component: ChangeDetectionStrategyComponent }
-    , { path: 'AsyncPipe', component: AsyncPipeComponent }
-    , { path: 'Rxjs', component: RxjsCollectionComponent }
-    , { path: 'Animation', component: AnimationComponent }
-    , { path: 'compose', component: AnimationComponent, outlet: 'popup' }
-    , { path: 'PlugIn', loadChildren: () => import('./PlugIn/plugin.module').then(m => m.PluginModule) }
-    , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
-    , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
-    , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
-    , { path: 'FireBaseTest', component: FirebaseTestComponent }
-    , { path: 'WebWorkOrb', component: WebWorkerOrbComponent }
-    , { path: 'Charts', loadChildren: () => import('./Charts/charts.module').then(m => m.ChartsModule) }
-    , { path: 'SVG', loadChildren: () => import('./SVG/svg.module').then(m => m.SvgModule) }
-    // , { path: 'heroList', component: HeroListComponent }
-    //, {
-    //  path: 'dashboard/:id', component: DashboardComponent,
-    //  children: [{
-    //    path: 'subdashboard/:name', component: SubDashboardComponent
-    //  }] //TODO: 父子層Route, path: dashboard/subdashboard (無效果)
-    //}
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
+  //{ path: 'heros', component: HerosComponent } //設定Route路徑與顯示的Component
+  , { path: 'dashboard', component: DashboardComponent }
+  , { path: 'HttpClientTest', component: HttpclientTestComponent }
+  , { path: 'VoteTaker', component: VoteTakerComponent }
+  , { path: 'ValidDemo', component: ValidDemoComponent }
+  , { path: 'ValidReactiveDemo', component: ValidReactiveFormComponent }
+  , { path: 'detail/:id', component: HeroDetailComponent }
+  , { path: 'MyCustomControl', component: MyControlMasterComponent }
+  , { path: 'DynamicLoading', component: DynamicLoadingComponent }
+  , { path: 'ChangeDectorRef', component: ChangeDectorRefComponent }
+  , { path: 'ChangeDetectionStrategy', component: ChangeDetectionStrategyComponent }
+  , { path: 'AsyncPipe', component: AsyncPipeComponent }
+  , { path: 'Rxjs', component: RxjsCollectionComponent }
+  , { path: 'Animation', component: AnimationComponent }
+  , { path: 'compose', component: AnimationComponent, outlet: 'popup' }
+  , { path: 'PlugIn', loadChildren: () => import('./PlugIn/plugin.module').then(m => m.PluginModule) }
+  , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
+  , { path: 'LittleMouseByCdkOverlay', component: LittleMouseSearchComponent }
+  , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
+  , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
+  , { path: 'FireBaseTest', component: FirebaseTestComponent }
+  , { path: 'WebWorkOrb', component: WebWorkerOrbComponent }
+  , { path: 'Charts', loadChildren: () => import('./Charts/charts.module').then(m => m.ChartsModule) }
+  , { path: 'SVG', loadChildren: () => import('./SVG/svg.module').then(m => m.SvgModule) }
+  // , { path: 'heroList', component: HeroListComponent }
+  //, {
+  //  path: 'dashboard/:id', component: DashboardComponent,
+  //  children: [{
+  //    path: 'subdashboard/:name', component: SubDashboardComponent
+  //  }] //TODO: 父子層Route, path: dashboard/subdashboard (無效果)
+  //}
 
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forRoot(routes)], //將立好的Routes加入RouteModule
-    exports: [RouterModule]
-    //exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)], //將立好的Routes加入RouteModule
+  exports: [RouterModule]
+  //exports: [RouterModule]
 })
 export class AppRoutingModule { }
