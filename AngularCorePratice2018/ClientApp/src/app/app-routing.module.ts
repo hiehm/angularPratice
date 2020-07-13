@@ -40,7 +40,6 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'compose', component: AnimationComponent, outlet: 'popup' }
   , { path: 'PlugIn', loadChildren: () => import('./PlugIn/plugin.module').then(m => m.PluginModule) }
   , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
-  , { path: 'LittleMouseByCdkOverlay', component: LittleMouseSearchComponent }
   , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
   , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
   , { path: 'FireBaseTest', component: FirebaseTestComponent }
