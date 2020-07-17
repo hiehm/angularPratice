@@ -5,7 +5,7 @@ import { CodeGeneratorRoutes } from './code-generator.routing';
 import { RouterModule } from '@angular/router';
 import { CodeGenNormalComponent } from './code-gen-normal/code-gen-normal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ObserversModule } from '@angular/cdk/observers'
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ObserversModule,
     RouterModule.forChild(CodeGeneratorRoutes)
   ]
 })

@@ -49,6 +49,7 @@
   <ItemGroup>
     <Folder Include="ClientApp\src\app\Charts\partial\" />
     <Folder Include="ClientApp\src\Utility\enums\" />
+    <Folder Include="ClientApp\src\Utility\interfaces\codeGenerator\" />
     <Folder Include="ClientApp\src\Utility\service\" />
   </ItemGroup>
 
