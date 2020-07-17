@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CodeGeneratorComponent } from './code-generator/code-generator.component';
-import { CodeGeneratorRoutes } from './code-generator.routing';
-import { RouterModule } from '@angular/router';
-import { CodeGenNormalComponent } from './code-gen-normal/code-gen-normal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { ObserversModule } from '@angular/cdk/observers'
-
+import { ClipboardModule } from '@angular/cdk/clipboard'
+import { CommonModule } from '@angular/common';
+import { UtilityModule } from '../../Utility/utility.module';
+import { CodeGeneratorComponent } from './code-generator/code-generator.component';
+import { CodeGenNormalComponent } from './code-gen-normal/code-gen-normal.component';
+import { CodeGeneratorRoutes } from './code-generator.routing';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { ObserversModule } from '@angular/cdk/observers'
     FormsModule,
     ReactiveFormsModule,
     ObserversModule,
+    ClipboardModule,
+    UtilityModule,
     RouterModule.forChild(CodeGeneratorRoutes)
   ]
 })

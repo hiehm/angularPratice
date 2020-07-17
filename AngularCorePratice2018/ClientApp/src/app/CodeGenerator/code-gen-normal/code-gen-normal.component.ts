@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild, TemplateRef, ElementRef, ViewContainerRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, ElementRef, ViewContainerRef, AfterViewInit, QueryList, ViewChildren, ContentChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CodeGeneratorNormalEnum, CodeGeneratorPlugInEnum } from '../../../Utility/enums/code-generator-enum';
 import { Common } from '../../../Utility/service/common';
+import { CodeGeneratorNormalEnum, CodeGeneratorPlugInEnum } from '../../../Utility/enums/code-generator-enum';
+import { ReplaceAngularWordLetterPipe } from '../../../Utility/pipe/replace-angular-word-letter.pipe';
 import { debounceTime } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
+import { CodeGenTemplateDirective } from '../../../Utility/directive/code-gen-template.directive';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-code-gen-normal',
@@ -12,17 +15,19 @@ import { isNullOrUndefined } from 'util';
 })
 export class CodeGenNormalComponent implements OnInit, AfterViewInit {
   @ViewChild('someOutlet') someOutlet: ElementRef;
-  @ViewChild('temp') temp1: TemplateRef<any>;
+  @ViewChildren(CodeGenTemplateDirective) tempList: QueryList<CodeGenTemplateDirective>;
   CodeGeneratorNormalEnum: typeof CodeGeneratorNormalEnum = CodeGeneratorNormalEnum;
   form: FormGroup;
   displayTemp: TemplateRef<any>;
   listData: string[] = [];
   pageObj: any = {};
-  searchOption: string
+  currentOpt: string;
 
   constructor(
     private _fb: FormBuilder,
-    private viewContainerRef: ViewContainerRef
+    private viewContainerRef: ViewContainerRef,
+    private replacePipe: ReplaceAngularWordLetterPipe,
+    private clipboard: Clipboard
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +40,7 @@ export class CodeGenNormalComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.displayTemp = this.temp1;
+
   }
 
   //重設選擇框
@@ -44,8 +49,18 @@ export class CodeGenNormalComponent implements OnInit, AfterViewInit {
     this.form.get('textAreaContent').reset();
   }
 
-  changeDivOutlet(d: any) {
-    console.log(d);
+  //輸入框事件
+  onTextareaKeyup(e: KeyboardEvent) {
+    if (e.ctrlKey && e.which === 65) {
+      this.clipboard.copy(this.form.get('textAreaContent').value);
+      alert('copy');
+    }
+    console.log(e);
+  }
+
+  //偵測TemplateOutlet載入模板
+  observeTemplateChange() {
+    this.form.get('textAreaContent').setValue(this.replacePipe.transform((this.someOutlet.nativeElement as HTMLElement).innerHTML, this.currentOpt));
   }
 
   //初始化頁面屬性
@@ -68,16 +83,19 @@ export class CodeGenNormalComponent implements OnInit, AfterViewInit {
     this.form.get('selType').setValue(0);
   }
 
+
+
   private initSetting() {
     this.form.get('searchOption').valueChanges.pipe(
       debounceTime(500)
     ).subscribe(res => {
       console.log(res);
       if (!isNullOrUndefined(res)) {
-        this.form.get('textAreaContent').setValue((this.someOutlet.nativeElement as HTMLElement).innerHTML.replace('#containerStart', '<ng-container>').replace('#containerEnd', '</ng-container>'));
+        //由此開始- 選擇模板
+        this.currentOpt = res;
+        const findTempIndex = this.listData.findIndex(x => x === res);
+        this.displayTemp = this.tempList.find((item, index) => index === findTempIndex).templateRef;
       }
-     // console.log((this.someOutlet.nativeElement as HTMLElement).innerHTML.replace('#containerStart', '<ng-container>').replace('#containerEnd', '</ng-container>'));
-
     });
 
     this.form.get('selType').valueChanges.subscribe(res => {

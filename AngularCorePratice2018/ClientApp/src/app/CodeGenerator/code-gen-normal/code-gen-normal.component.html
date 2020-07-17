@@ -15,7 +15,7 @@
       <button (click)="resetSearch()">重設</button>
       <!--TextArea-->
       <div>
-        <textarea class="m-10" style="width:500px;height:500px;" formControlName="textAreaContent"></textarea>
+        <textarea *ngIf="form.get('selType').value===0" class="m-10" style="width:500px;height:500px;" formControlName="textAreaContent" (keyup)="onTextareaKeyup($event)"></textarea>
       </div>
     </ng-container>
   </div>
@@ -23,13 +23,20 @@
 
 
 <!--Template Container-->
-<div [hidden]="true" #someOutlet>
+<div [hidden]="true" #someOutlet (cdkObserveContent)="observeTemplateChange()">
   <div *ngTemplateOutlet="displayTemp" #someDiv></div>
 </div>
 <ng-container [ngSwitch]="form.get('selType').value">
   <!--Normal List-->
   <ng-container *ngSwitchCase="0">
-    <ng-template #temp>
+    <!--ngFor-->
+    <ng-template appCodeGenTemplate>
+      #containerStart #br
+      ...
+      #containerEnd
+    </ng-template>
+    <!--ngIf-->
+    <ng-template appCodeGenTemplate>
       #containerStart #br
       <button>xxas</button>
       #containerEnd
@@ -39,4 +46,3 @@
   <ng-container *ngSwitchCase="1">
   </ng-container>
 </ng-container>
-
