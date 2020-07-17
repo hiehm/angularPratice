@@ -1,7 +1,11 @@
 <app-little-mouse-search-partial [setting]="{apiUrl:'matt'}" (returnContent)="acceptConetnt($event)"></app-little-mouse-search-partial>
-<div>
+<p>
   PartialContent:<br />
   {{acceptPartialContent}}
-</div>
+</p>
 <!--<app-little-mouse-search-partial [setting]="{apiUrl:'matt'}" (returnContent)="acceptConetnt($event)"></app-little-mouse-search-partial>-->
 <app-little-mouse-search-partial [setting]="{apiUrl:'matt'}" (returnContent)="acceptConetnt($event)"></app-little-mouse-search-partial>
+
+<!--Use CdkOverlay-->
+<p>＠搜尋框定位功能,使用CdkOverlay</p>
+<app-little-mouse-search-by-cdk-overlay></app-little-mouse-search-by-cdk-overlay>

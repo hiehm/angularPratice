@@ -1,0 +1,25 @@
+div.SearchBox {
+  border: 1px solid black;
+  margin: 15px;
+  min-width: 600px;
+  min-height: 300px;
+}
+
+div.SearchContent {
+  content: '';
+  min-height: 50px;
+}
+.div-inlineblock {
+  display: inline-block;
+}
+
+[contenteditable]:focus {
+  outline: 0px solid transparent;
+}
+.show {
+  display: block;
+}
+
+.hide {
+  visibility: hidden;
+}
