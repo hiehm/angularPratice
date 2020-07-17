@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <input type="radio" name="selType" formControlName="selType" [value]="0" title="Normal" /> Normal
+  <input type="radio" name="selType" formControlName="selType" [value]="1" title="PlugIn" /> PlugIn
+  <div class="letter-space-2">
+    <ng-container *ngIf="listData?.length>0">
+      <span>指令選擇</span>
+      <input class="m-5" list="options" name="options"  formControlName="searchOption" />
+      <datalist id="options">
+        <ng-container *ngFor="let opt of listData">
+          <option [value]="opt">{{opt}}</option>
+        </ng-container>
+      </datalist>
+      <button (click)="resetSearch()">重設</button>
+    </ng-container>
+  </div>
+</form>

@@ -48,6 +48,8 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\Charts\partial\" />
+    <Folder Include="ClientApp\src\Utility\enums\" />
+    <Folder Include="ClientApp\src\Utility\service\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -10,7 +10,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
   ],
   imports: [
     CommonModule,
-    OverlayModule
+    OverlayModule //cdkOverlay
   ],
   exports: [
     LittleMouseSearchPartialComponent,
