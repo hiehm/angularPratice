@@ -47,6 +47,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'Charts', loadChildren: () => import('./Charts/charts.module').then(m => m.ChartsModule) }
   , { path: 'SVG', loadChildren: () => import('./SVG/svg.module').then(m => m.SvgModule) }
   , { path: 'CodeGenerator', loadChildren: () => import('./CodeGenerator/code-generator.module').then(m => m.CodeGeneratorModule) }
+  , { path: 'Pratice', loadChildren: () => import('./Pratice/pratice.module').then(m => m.PraticeModule) }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

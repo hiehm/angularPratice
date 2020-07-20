@@ -1,12 +1,14 @@
-import { Component, OnInit, ViewChild, TemplateRef, ElementRef, ViewContainerRef, AfterViewInit, QueryList, ViewChildren, ContentChildren } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, ElementRef, AfterViewInit, QueryList, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Common } from '../../../Utility/service/common';
-import { CodeGeneratorNormalEnum, CodeGeneratorPlugInEnum } from '../../../Utility/enums/code-generator-enum';
+import { CodeGenTemplateDirective } from '../../../Utility/directive/code-gen-template.directive';
 import { ReplaceAngularWordLetterPipe } from '../../../Utility/pipe/replace-angular-word-letter.pipe';
+import { CodeGeneratorNormalEnum, CodeGeneratorPlugInEnum } from '../../../Utility/enums/code-generator-enum';
 import { debounceTime } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
-import { CodeGenTemplateDirective } from '../../../Utility/directive/code-gen-template.directive';
-import { Clipboard } from '@angular/cdk/clipboard';
+
+
 
 @Component({
   selector: 'app-code-gen-normal',
@@ -25,7 +27,6 @@ export class CodeGenNormalComponent implements OnInit, AfterViewInit {
 
   constructor(
     private _fb: FormBuilder,
-    private viewContainerRef: ViewContainerRef,
     private replacePipe: ReplaceAngularWordLetterPipe,
     private clipboard: Clipboard
   ) { }
