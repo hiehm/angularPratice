@@ -1,0 +1,9 @@
+<h3>ngPlural - 類似ngSwitch功能,多了number expression 判定邏輯,用 =、>、< 運算子進行判定動作</h3>
+<div>
+  <p [ngPlural]="count">
+    <ng-template ngPluralCase="=0">this is =1</ng-template>
+    <ng-template ngPluralCase="=1">{{count}}</ng-template>
+    <ng-template ngPluralCase=">1">{{count}} >1</ng-template>
+    <!--<ng-template ngPluralCase="other">this {{count}} is >1</ng-template>-->
+  </p>
+</div>

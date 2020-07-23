@@ -1,0 +1,5 @@
+<h3>Dynamic select tags,merge Directive and ngSelectOption type application</h3>
+<ng-container *ngFor="let i of [].constructor(5);let index=index">
+  <select appDynamicSelectOption (change)="onChange($event.target.value,index)" ></select>
+</ng-container>
+
