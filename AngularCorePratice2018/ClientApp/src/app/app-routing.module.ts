@@ -19,7 +19,6 @@ import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-s
 import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
 import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.component';
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
-import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component';
 
 const routes: Routes = [ //建構Routes規則
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' } //頁面載入時,預設跳轉的Route
@@ -43,11 +42,12 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
   , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
   , { path: 'FireBaseTest', component: FirebaseTestComponent }
-  , { path: 'WebWorkOrb', component: WebWorkerOrbComponent }
+  , { path: 'WebWorker', loadChildren: () => import('./WebWorker/web-worker.module').then(m => m.WebWorkerModule) }
   , { path: 'Charts', loadChildren: () => import('./Charts/charts.module').then(m => m.ChartsModule) }
   , { path: 'SVG', loadChildren: () => import('./SVG/svg.module').then(m => m.SvgModule) }
   , { path: 'CodeGenerator', loadChildren: () => import('./CodeGenerator/code-generator.module').then(m => m.CodeGeneratorModule) }
   , { path: 'Pratice', loadChildren: () => import('./Pratice/pratice.module').then(m => m.PraticeModule) }
+  , { path: 'PraticeJs', loadChildren: () => import('./PraticeJs/PraticeJs.module').then(m => m.PraticejsModule) }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,

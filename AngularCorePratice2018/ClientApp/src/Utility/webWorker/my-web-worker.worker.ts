@@ -1,8 +1,12 @@
 /// <reference lib="webworker" />
 
 addEventListener('message', ({ data }) => {
-  const response = `worker response to ${data}`;
-  for (let i = 0; i < 100; i++) {
+  const response = {
+    msg: `worker response to ${data}`,
+    count: 0
+  };
+  for (let i = 1; i <= 10000; i++) {
+    response.count = i;
     postMessage(response);
   }
 });

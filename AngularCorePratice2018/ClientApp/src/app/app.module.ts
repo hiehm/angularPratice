@@ -41,7 +41,6 @@ import { AcceptOtherPostComponent } from './accept-other-post/accept-other-post.
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
 import { environment } from '../environments/environment';
 import { FirebaseHttpService } from '../Service/firebase-http.service';
-import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component';
 
 //import { HeroListComponent } from './heroes/hero-list/hero-list.component'; //自訂Module無須引入Component
 //import { HeroDetailRComponent } from './heroes/hero-detail-r/hero-detail-r.component';
@@ -74,7 +73,7 @@ import { WebWorkerOrbComponent } from './web-worker-orb/web-worker-orb.component
     UrlMetadataParserComponent,
     AcceptOtherPostComponent,
     FirebaseTestComponent,
-    WebWorkerOrbComponent
+    
     //HeroListComponent,
     //HeroDetailRComponent
   ],

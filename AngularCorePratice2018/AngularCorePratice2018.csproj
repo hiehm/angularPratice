@@ -48,6 +48,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\Charts\partial\" />
+    <Folder Include="ClientApp\src\app\PraticeJs\praticejs\" />
     <Folder Include="ClientApp\src\app\Pratice\partial\" />
     <Folder Include="ClientApp\src\Utility\enums\" />
     <Folder Include="ClientApp\src\Utility\interfaces\codeGenerator\" />

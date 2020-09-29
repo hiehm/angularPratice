@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WebWorkerOrbComponent } from './web-worker-orb.component';
+import { WebWorkWithGitFileComponent } from './web-work-with-git-file.component';
 
-describe('WebWorkerOrbComponent', () => {
-  let component: WebWorkerOrbComponent;
-  let fixture: ComponentFixture<WebWorkerOrbComponent>;
+describe('WebWorkWithGitFileComponent', () => {
+  let component: WebWorkWithGitFileComponent;
+  let fixture: ComponentFixture<WebWorkWithGitFileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebWorkerOrbComponent ]
+      declarations: [ WebWorkWithGitFileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WebWorkerOrbComponent);
+    fixture = TestBed.createComponent(WebWorkWithGitFileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,22 @@
+<!-- trackBy With Normal Data-->
+<div>
+  <h3>TrackBy With Normal Data</h3>
+  <div *ngFor="let e of array;trackBy:identify">
+    {{e.id}} - {{e.name}}
+  </div>
+  <button (click)="foo()">foo</button>
+</div>
+<hr />
+<!-- trackBy With FormArray Data-->
+<div>
+  <h3>TrackBy With FormArray</h3>
+  <form [formGroup]="form">
+    <ng-container *ngFor="let item of formAr.value;let $index=index;trackBy: identify">
+      <div>
+        {{item.id}} - {{item.name}}
+      </div>
+    </ng-container>
+  </form>
+  <button (click)="changeArData()">changeArData</button>
+  <button (click)="clearData()">clearData</button>
+</div>

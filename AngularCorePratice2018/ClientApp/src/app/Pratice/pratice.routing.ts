@@ -4,6 +4,7 @@ import { PraticeComponent } from "./pratice/pratice.component";
 import { PraticeCallWebAPIComponent } from "./pratice-call-web-api/pratice-call-web-api.component";
 import { PraticeNgPluralComponent } from "./pratice-ng-plural/pratice-ng-plural.component";
 import { PraticeNgSelectOptionComponent } from "./pratice-ng-select-option/pratice-ng-select-option.component";
+import { PraticeNgForTrackByComponent } from "./pratice-ng-for-track-by/pratice-ng-for-track-by.component";
 
 export const PraticeRouters: Routes = [
   {
@@ -14,7 +15,8 @@ export const PraticeRouters: Routes = [
       { path: 'ngContent', component: PraticeNgContentComponent },
       { path: 'ngPlural', component: PraticeNgPluralComponent },
       { path: 'ngSelectOption', component: PraticeNgSelectOptionComponent },
-      { path: 'callWebApi', component: PraticeCallWebAPIComponent }
+      { path: 'callWebApi', component: PraticeCallWebAPIComponent },
+      { path: 'ngForTrackBy', component: PraticeNgForTrackByComponent }
     ]
   }
 ];

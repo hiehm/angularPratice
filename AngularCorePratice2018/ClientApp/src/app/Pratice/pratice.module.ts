@@ -10,6 +10,7 @@ import { PraticeCallWebAPIComponent } from './pratice-call-web-api/pratice-call-
 import { PraticeNgPluralComponent } from './pratice-ng-plural/pratice-ng-plural.component';
 import { PraticeNgSelectOptionComponent } from './pratice-ng-select-option/pratice-ng-select-option.component';
 import { UtilityModule } from '../../Utility/utility.module';
+import { PraticeNgForTrackByComponent } from './pratice-ng-for-track-by/pratice-ng-for-track-by.component';
 
 
 
@@ -20,7 +21,8 @@ import { UtilityModule } from '../../Utility/utility.module';
     PartialNgContentComponent,
     PraticeCallWebAPIComponent,
     PraticeNgPluralComponent,
-    PraticeNgSelectOptionComponent
+    PraticeNgSelectOptionComponent,
+    PraticeNgForTrackByComponent
   ],
   imports: [
     CommonModule,
