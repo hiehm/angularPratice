@@ -13,11 +13,11 @@ export class PraticejsMapAndSetComponent implements OnInit {
 
   ngOnInit(): void {
     this.arrCol = [{
-      name: 'MATT',
-      age: 18
+      name: 'SATT',
+      age: 25
     }, {
       name: 'MARY',
-      age: 25
+      age: 18
     }, {
       name: 'YER',
       age: 99
@@ -25,6 +25,14 @@ export class PraticejsMapAndSetComponent implements OnInit {
     this.useMapIterator();
     this.useSetIterator();
 
+  }
+
+  // a=new obj,b=old obj
+  compareFn(a, b) {
+    console.log(a); 
+    console.log(b);
+    //a.value > b.value?1:-1; //遞增排序
+    return a.value < b.value ? 1 : -1; //遞減排序
   }
 
   //Map Iterator

@@ -2,8 +2,8 @@
   <h2>Map - 映射物件特性(Iterator) 擁有 key 與 value 相關屬性操作</h2>
   <h3>在ngFor操作中需搭配 keyvalue pipe使用</h3>
   <h3>資料 key 值重複情況下，舊的資料將被取代</h3>
-  <h4>ArrayCollection convert to Map with ngFor</h4>
-  <ng-container *ngFor="let item of mapObj | keyvalue">
+  <h4>ArrayCollection convert to Map with ngFor,then use keyvalue pipe compareFn sort</h4>
+  <ng-container *ngFor="let item of mapObj | keyvalue:compareFn">
     <div>{{item.key}},{{item.value}}</div>
   </ng-container>
 </div>
@@ -18,6 +18,6 @@
     value has 5:{{setObj.has('5')}}
   </p>
   <p>
-    delete value 100:{{setObj.delete(100)}}
+    delete value 100:{{setObj.delete('100')}}
   </p>
 </div>
