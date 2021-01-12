@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NgxSlickCarseoulPlugInComponent } from './ngx-slick-carseoul-plug-in.component';
 
@@ -6,7 +6,7 @@ describe('NgxSlickCarseoulPlugInComponent', () => {
   let component: NgxSlickCarseoulPlugInComponent;
   let fixture: ComponentFixture<NgxSlickCarseoulPlugInComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NgxSlickCarseoulPlugInComponent ]
     })

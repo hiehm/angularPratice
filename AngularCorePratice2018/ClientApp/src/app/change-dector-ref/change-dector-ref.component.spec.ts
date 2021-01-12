@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ChangeDectorRefComponent } from './change-dector-ref.component';
 
@@ -6,7 +6,7 @@ describe('ChangeDectorRefComponent', () => {
   let component: ChangeDectorRefComponent;
   let fixture: ComponentFixture<ChangeDectorRefComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ChangeDectorRefComponent ]
     })

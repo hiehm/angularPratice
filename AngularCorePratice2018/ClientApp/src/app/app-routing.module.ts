@@ -61,7 +61,7 @@ const routes: Routes = [ //建構Routes規則
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)], //將立好的Routes加入RouteModule
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })], //將立好的Routes加入RouteModule
   exports: [RouterModule]
   //exports: [RouterModule]
 })

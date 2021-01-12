@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SvgD3BasicComponent } from './svg-d3-basic.component';
 
@@ -6,7 +6,7 @@ describe('SvgD3BasicComponent', () => {
   let component: SvgD3BasicComponent;
   let fixture: ComponentFixture<SvgD3BasicComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SvgD3BasicComponent ]
     })
