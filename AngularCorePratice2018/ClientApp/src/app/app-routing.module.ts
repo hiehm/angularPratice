@@ -41,7 +41,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'LittleMouseSearch', component: LittleMouseSearchComponent }
   , { path: 'UrlMetadataParser', component: UrlMetadataParserComponent }
   , { path: 'AcceptOtherPost', component: AcceptOtherPostComponent }
-  , { path: 'FireBaseTest', component: FirebaseTestComponent }
+  //, { path: 'FireBaseTest', component: FirebaseTestComponent }
   , { path: 'WebWorker', loadChildren: () => import('./WebWorker/web-worker.module').then(m => m.WebWorkerModule) }
   , { path: 'Charts', loadChildren: () => import('./Charts/charts.module').then(m => m.ChartsModule) }
   , { path: 'SVG', loadChildren: () => import('./SVG/svg.module').then(m => m.SvgModule) }
