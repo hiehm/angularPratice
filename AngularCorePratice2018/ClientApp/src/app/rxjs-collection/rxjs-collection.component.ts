@@ -12,11 +12,11 @@ import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChan
 })
 
 export class RxjsCollectionComponent implements OnInit {
-  @ViewChild('CallTakeUntil', { static: true }) _CallTakeUntil: ElementRef;
-  @ViewChild('CallTakeLast', { static: true }) _CallTakeLast: ElementRef;
-  @ViewChild('BufferBtnClcik', { static: true }) _BufferBtnClcik: ElementRef;
-  @ViewChild('ClearMerge', { static: true }) _ClearMerge: ElementRef;
-  @ViewChild('ClearWindow', { static: true }) _ClearWindow: ElementRef;
+  @ViewChild('CallTakeUntil') _CallTakeUntil: ElementRef;
+  @ViewChild('CallTakeLast') _CallTakeLast: ElementRef;
+  @ViewChild('BufferBtnClcik') _BufferBtnClcik: ElementRef;
+  @ViewChild('ClearMerge') _ClearMerge: ElementRef;
+  @ViewChild('ClearWindow', { static: false }) _ClearWindow: ElementRef;
   RxJsModeEnum: typeof RxJsModeEnum = RxJsModeEnum;
   RxJsMode: RxJsModeEnum = RxJsModeEnum.step1;
   bufferResult: string;
@@ -49,8 +49,7 @@ export class RxjsCollectionComponent implements OnInit {
   private readonly API_URL = 'https://api.github.com/users';
   private readonly API_URL2 = 'https://jsonplaceholder.typicode.com/todos/';
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit() {
     this.upperPipe = new UpperCasePipe();
