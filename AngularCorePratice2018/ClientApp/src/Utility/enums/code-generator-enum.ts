@@ -11,3 +11,10 @@ export enum CodeGeneratorNormalEnum {
 export enum CodeGeneratorPlugInEnum {
 
 }
+
+/** RxJS範例模式切換 */
+export enum RxJsModeEnum {
+  step1 = 'step1',
+  step2 = 'step2',
+  step3 = 'step3'
+}

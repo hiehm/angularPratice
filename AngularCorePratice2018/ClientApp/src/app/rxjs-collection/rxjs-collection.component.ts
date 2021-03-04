@@ -1,22 +1,24 @@
-import { Component, OnInit, QueryList, ViewChild, ElementRef, Inject } from '@angular/core';
-import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, throwError, concat, Scheduler, range } from 'rxjs';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, concat } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, mapTo, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share, pairwise, race, defaultIfEmpty, every } from 'rxjs/operators';
-import { UpperCasePipe, JsonPipe } from '@angular/common';
+import { UpperCasePipe } from '@angular/common';
+import { RxJsModeEnum } from '../../Utility/enums/code-generator-enum';
+import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share, pairwise, race, defaultIfEmpty, every } from 'rxjs/operators';
+
 @Component({
   selector: 'app-rxjs-collection',
   templateUrl: './rxjs-collection.component.html',
   styleUrls: ['./rxjs-collection.component.css']
 })
+
 export class RxjsCollectionComponent implements OnInit {
   @ViewChild('CallTakeUntil', { static: true }) _CallTakeUntil: ElementRef;
   @ViewChild('CallTakeLast', { static: true }) _CallTakeLast: ElementRef;
   @ViewChild('BufferBtnClcik', { static: true }) _BufferBtnClcik: ElementRef;
   @ViewChild('ClearMerge', { static: true }) _ClearMerge: ElementRef;
   @ViewChild('ClearWindow', { static: true }) _ClearWindow: ElementRef;
-  private readonly API_URL = 'https://api.github.com/users';
-  private readonly API_URL2 = 'https://jsonplaceholder.typicode.com/todos/';
-  private searchTerms = new Subject<string>(); //宣告一個Subject
+  RxJsModeEnum: typeof RxJsModeEnum = RxJsModeEnum;
+  RxJsMode: RxJsModeEnum = RxJsModeEnum.step1;
   bufferResult: string;
   bufferFuncName: string;
   catchResult: string;
@@ -32,8 +34,6 @@ export class RxjsCollectionComponent implements OnInit {
   pairwiseResult: string;
   raceResult: string;
   subjectResult: string;
-  private _subjectBySubject = new Subject();
-  private _takeUntilButtonEvent = new Subject();
   takeUntilResult: string;
   takeLastResult: string;
   windowResult: string;
@@ -42,9 +42,14 @@ export class RxjsCollectionComponent implements OnInit {
   data3$: Observable<any[]>;
   funcName: string;
   debounceTimeStr: Observable<any>;
+  private searchTerms = new Subject<string>(); //宣告一個Subject
+  private _subjectBySubject = new Subject();
+  private _takeUntilButtonEvent = new Subject();
   private upperPipe: UpperCasePipe;
-  constructor(private httpClient: HttpClient) {
+  private readonly API_URL = 'https://api.github.com/users';
+  private readonly API_URL2 = 'https://jsonplaceholder.typicode.com/todos/';
 
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -80,11 +85,17 @@ export class RxjsCollectionComponent implements OnInit {
       map(x => x)
     );
     this._subjectBySubject.subscribe((data) => {
-      this.subjectResult +='SubjectA:'+ data + ',';
+      this.subjectResult += 'SubjectA:' + data + ',';
     });
     this._subjectBySubject.subscribe((data) => {
       this.subjectResult += 'SubjectB:' + data + ',';
     });
+  }
+
+
+  changeRxJsMode(mode: RxJsModeEnum) {
+    console.log(mode);
+    this.RxJsMode = mode;
   }
 
   //buffer-bufferTime
@@ -251,7 +262,7 @@ export class RxjsCollectionComponent implements OnInit {
 
   //Every
   CallEvery() {
-    
+
     let source = of(1, 2, 3, 4, 5);
     this.everyResult += `[1,2,3,4,5]`;
     source.pipe(
@@ -398,7 +409,7 @@ export class RxjsCollectionComponent implements OnInit {
       take(5)
     ).subscribe(res => {
       this.raceResult += res + ',';
-    });   
+    });
   }
 
   //Pairwiese
@@ -453,11 +464,11 @@ export class RxjsCollectionComponent implements OnInit {
   CallWindow() {
     //map(obj=>obj.pipe(count())),將1秒內Click次數統合
     //switchAll 攤平Observable<Observable<T>>後輸出
-     fromEvent(document, 'click').pipe(
+    fromEvent(document, 'click').pipe(
       window(interval(1000)),
       map(obj => obj.pipe(count())),
-       switchAll(),
-       takeUntil(fromEvent(this._ClearWindow.nativeElement, 'click', () => { this.windowResult = '' }))
+      switchAll(),
+      takeUntil(fromEvent(this._ClearWindow.nativeElement, 'click', () => { this.windowResult = '' }))
     ).subscribe(res => {
       this.windowResult += res + ',';
     });
@@ -468,7 +479,7 @@ export class RxjsCollectionComponent implements OnInit {
     //windowCount 設定每N項目發出後,就觸發一次
     interval(1000).pipe(
       windowCount(3),
-      map(()=>'每三次觸發'),
+      map(() => '每三次觸發'),
       takeUntil(fromEvent(this._ClearWindow.nativeElement, 'click', () => { this.windowResult = '' }))
     ).subscribe(res => {
       this.windowResult += res + ',';
@@ -511,7 +522,7 @@ export class RxjsCollectionComponent implements OnInit {
       switchAll(),
       takeUntil(fromEvent(this._ClearWindow.nativeElement, 'click', () => { this.windowResult = '' }))
     ).subscribe(res => {
-      this.windowResult +='發出總數:'+ res + ',';
+      this.windowResult += '發出總數:' + res + ',';
     });
   }
 }

@@ -1,82 +1,91 @@
 <div>
+  <h4>
+    模式選擇: <select (change)="changeRxJsMode($event.target.value)">
+      <option value="step1" selected="selected">STEP1</option>
+      <option value="step2">STEP2</option>
+      <option value="step3">STEP3</option>
+    </select>
+  </h4>
   <h5>執行方法為: {{funcName}}</h5>
-  <div>
-    <h3>buffer</h3>
-    <input type="button" value="bufferTime" (click)="CallbufferTime()" />
-    <input type="button" value="bufferCount" (click)="CallbufferCount()" />
-    <input #BufferBtnClcik type="button" value="連續點擊2次才輸出 bufferTime" (click)="CallBtnbufferTime()" />
-    <div>
-      <span>{{bufferFuncName}}</span>
-    </div>
-    <pre>
+  <ng-container [ngSwitch]="RxJsMode">
+    <ng-container *ngSwitchCase="RxJsModeEnum.step1">
+      <div>
+        <h3>buffer</h3>
+        <input type="button" value="bufferTime" (click)="CallbufferTime()" />
+        <input type="button" value="bufferCount" (click)="CallbufferCount()" />
+        <input #BufferBtnClcik type="button" value="連續點擊2次才輸出 bufferTime" (click)="CallBtnbufferTime()" />
+        <div>
+          <span>{{bufferFuncName}}</span>
+        </div>
+        <pre>
       {{bufferResult | json}}
     </pre>
-  </div>
-  <hr />
-  <div>
-    <h3>catch</h3>
-    <input type="button" value="catchWithEmpty" (click)="CallcatchWithEmpty()" />
-    <pre>
+      </div>
+      <hr />
+      <div>
+        <h3>catch</h3>
+        <input type="button" value="catchWithEmpty" (click)="CallcatchWithEmpty()" />
+        <pre>
       {{catchResult}}
     </pre>
-  </div>
-  <hr />
-  <div>
-    <h3>combineAll</h3>
-    <input type="button" value="combineAll" (click)="CallcombineAll()" />
-    <!--透過pre格式化 json輸出-->
-    <pre>
+      </div>
+      <hr />
+      <div>
+        <h3>combineAll</h3>
+        <input type="button" value="combineAll" (click)="CallcombineAll()" />
+        <!--透過pre格式化 json輸出-->
+        <pre>
       {{combineAllResult | json}}
     </pre>
-  </div>
-  <hr />
-  <h3>combineLatest</h3>
-  <input type="button" value="combineLatest" (click)="CallcombineLatest()" />
-  <hr />
-  <div>
-    <h3>concat & concatAll = concatMap</h3>
-    <input type="button" value="CallConcat" (click)="CallConcat()" />
-    <input type="button" value="CallConcatAll" (click)="CallConcatAll()" />
-    <input type="button" value="CallConcatMap" (click)="CallConcatMap()" />
-    <p>
-      執行方法:{{concatMethods}}
-    </p>
-    <pre>
+      </div>
+      <hr />
+      <h3>combineLatest</h3>
+      <input type="button" value="combineLatest" (click)="CallcombineLatest()" />
+      <hr />
+      <div>
+        <h3>concat & concatAll = concatMap</h3>
+        <input type="button" value="CallConcat" (click)="CallConcat()" />
+        <input type="button" value="CallConcatAll" (click)="CallConcatAll()" />
+        <input type="button" value="CallConcatMap" (click)="CallConcatMap()" />
+        <p>
+          執行方法:{{concatMethods}}
+        </p>
+        <pre>
       {{concatResult}}
     </pre>
-  </div>
-  <hr />
-  <h3>distinct & distinctUntilChanged</h3>
-  <input type="button" value="CallDistinctByArray" (click)="CallDistinctByArray()" />
-  <input type="button" value="CallDistinctByCollection" (click)="CallDistinctByCollection()" />
-  <input type="button" value="CallDistinctForClearFlush" (click)="CallDistinctForClearFlush()" /><br />
-  <input type="button" value="CallDistinctUntilChanged" (click)="CallDistinctUntilChanged()" />
-  <pre>
+      </div>
+      <hr />
+      <h3>distinct & distinctUntilChanged</h3>
+      <input type="button" value="CallDistinctByArray" (click)="CallDistinctByArray()" />
+      <input type="button" value="CallDistinctByCollection" (click)="CallDistinctByCollection()" />
+      <input type="button" value="CallDistinctForClearFlush" (click)="CallDistinctForClearFlush()" /><br />
+      <input type="button" value="CallDistinctUntilChanged" (click)="CallDistinctUntilChanged()" />
+      <pre>
   {{distinctResult}}
 </pre>
-  <hr />
-  <h3>debounceTime</h3>
-  <input #searchBox type="text" (keyup)="CalldebounceTime(searchBox.value)" />
-  {{debounceTimeStr | async}}
-  <hr />
-  <h3>defaultIfEmpty</h3>
-  <input type="button" value="CallDefaultIfEmpty" (click)="CallDefaultIfEmpty()" />
-  <pre>
+      <hr />
+      <h3>debounceTime</h3>
+      <input #searchBox type="text" (keyup)="CalldebounceTime(searchBox.value)" />
+      {{debounceTimeStr | async}}
+      <hr />
+      <h3>defaultIfEmpty</h3>
+      <input type="button" value="CallDefaultIfEmpty" (click)="CallDefaultIfEmpty()" />
+      <pre>
   {{defaultIfEmptyResult}}
 </pre>
-  <hr />
-  <h3>every</h3>
-  <input type="button" value="CallEvery" (click)="CallEvery()" />
-  <pre>
+      <hr />
+      <h3>every</h3>
+      <input type="button" value="CallEvery" (click)="CallEvery()" />
+      <pre>
   {{everyResult}}
 </pre>
-  <hr />
-  <h3>forkJoin</h3>
-  <input type="button" value="forkJoin" (click)="CallforkJoin()" />
-  <hr />
-  <h3>groupBy</h3>
-  <input type="button" value="CallGroupBy" (click)="CallGroupBy()" />
-  <pre>
+      <hr />
+      <h3>forkJoin</h3>
+      <input type="button" value="forkJoin" (click)="CallforkJoin()" />
+      <hr />
+      <h3>groupBy</h3>
+      <input type="button" value="CallGroupBy" (click)="CallGroupBy()" />
+      <pre>
      name: 'Anna', score: 100, subject: 'English',
      name: 'Anna', score: 90, subject: 'Math' ,
      name: 'Anna', score: 96, subject: 'Chinese' ,
@@ -84,76 +93,83 @@
      name: 'Jerry', score: 100, subject: 'Math' ,
      name: 'Jerry', score: 90, subject: 'Chinese'
   </pre>
-  <pre>
+      <pre>
 輸出結果:
   {{groupbyResult}}
 </pre>
-  <hr />
-  <h3>map</h3>
-  <input type="button" value="map" (click)="CallMap()" />
-  <hr />
-  <h3>merge & mergeAll & mergeMap</h3>
-  <input type="button" value="CallMerge" (click)="CallMerge()" />
-  <input type="button" value="CallMergeAll" (click)="CallMergeAll()" />
-  <input type="button" value="CallMergeMap" (click)="CallMergeMap()" />
-  <input #ClearMerge type="button" value="ClearMerge" />
-  <p>
-    執行方法:{{mergeMethods}}
-  </p>
-  <pre>
+      <hr />
+      <h3>map</h3>
+      <input type="button" value="map" (click)="CallMap()" />
+      <hr />
+      <h3>merge & mergeAll & mergeMap</h3>
+      <input type="button" value="CallMerge" (click)="CallMerge()" />
+      <input type="button" value="CallMergeAll" (click)="CallMergeAll()" />
+      <input type="button" value="CallMergeMap" (click)="CallMergeMap()" />
+      <input #ClearMerge type="button" value="ClearMerge" />
+      <p>
+        執行方法:{{mergeMethods}}
+      </p>
+      <pre>
   {{mergeResult}}
   </pre>
-  <hr />
-  <h3>pairwise</h3>
-  <input type="button" value="CallPairwise" (click)="CallPairwise()" />
-  <pre>
+      <hr />
+      <h3>pairwise</h3>
+      <input type="button" value="CallPairwise" (click)="CallPairwise()" />
+      <pre>
   {{pairwiseResult}}
   </pre>
-  <hr />
-  <h3>race</h3>
-  <input type="button" value="CallRace" (click)="CallRace()" />
-  <pre>
+      <hr />
+      <h3>race</h3>
+      <input type="button" value="CallRace" (click)="CallRace()" />
+      <pre>
   {{raceResult}}
   </pre>
-  <hr />
-  <h3>switchMap</h3>
-  <input type="button" value="switchMap" (click)="CallswitchMap()" />
-  <hr />
-  <h3>subject</h3>
-  <input type="button" value="CallSubject" (click)="CallSubject()" />
-  <pre>
+      <hr />
+      <h3>switchMap</h3>
+      <input type="button" value="switchMap" (click)="CallswitchMap()" />
+      <hr />
+      <h3>subject</h3>
+      <input type="button" value="CallSubject" (click)="CallSubject()" />
+      <pre>
    {{subjectResult}}
 </pre>
-  <hr />
-  <h3>TakeLast</h3>
-  <input type="button" value="CallTakeLast" (click)="StartTakeLastInterval()" />
-  <input #CallTakeLast type="button" value="CallTakeLast" />
-  <pre>
+      <hr />
+      <h3>TakeLast</h3>
+      <input type="button" value="CallTakeLast" (click)="StartTakeLastInterval()" />
+      <input #CallTakeLast type="button" value="CallTakeLast" />
+      <pre>
   {{takeLastResult}}
 </pre>
-  <hr />
-  <h3>TakeUntil</h3>
-  <input type="button" value="StartTakeUntilInterval" (click)="StartTakeUntilInterval()" />
-  <!--(click)="CallTakeUntil()" 使用Subject()方式時加入,同時使用fromEvent(DOM,eventName)會造成衝突-->
-  <input #CallTakeUntil type="button" value="CallTakeUntil" />
-  <pre>
+      <hr />
+      <h3>TakeUntil</h3>
+      <input type="button" value="StartTakeUntilInterval" (click)="StartTakeUntilInterval()" />
+      <!--(click)="CallTakeUntil()" 使用Subject()方式時加入,同時使用fromEvent(DOM,eventName)會造成衝突-->
+      <input #CallTakeUntil type="button" value="CallTakeUntil" />
+      <pre>
   {{takeUntilResult}}
 </pre>
-  <hr />
-  <h3>Window & WindowCount & WindowToggle</h3>
-  <input type="button" value="CallWindow" (click)="CallWindow()" />
-  <input type="button" value="CallWindowCount" (click)="CallWindowCount()" />
-  <input type="button" value="CallWindowTime" (click)="CallWindowTime()" />
-  <input type="button" value="CallWindowToggle" (click)="CallWindowToggle()" />
-  <input type="button" value="CallWindowWhen" (click)="CallWindowWhen()" />
-  <input #ClearWindow type="button" value="ClearWindow" />
-  <pre>
+      <hr />
+      <h3>Window & WindowCount & WindowToggle</h3>
+      <input type="button" value="CallWindow" (click)="CallWindow()" />
+      <input type="button" value="CallWindowCount" (click)="CallWindowCount()" />
+      <input type="button" value="CallWindowTime" (click)="CallWindowTime()" />
+      <input type="button" value="CallWindowToggle" (click)="CallWindowToggle()" />
+      <input type="button" value="CallWindowWhen" (click)="CallWindowWhen()" />
+      <input #ClearWindow type="button" value="ClearWindow" />
+      <pre>
   每秒Click次數統計:{{windowResult}}
 </pre>
-  <hr />
+      <hr />
+    </ng-container>
+    <ng-container *ngSwitchCase="RxJsModeEnum.step2">
+      step2
+    </ng-container>
+    <ng-container *ngSwitchCase="RxJsModeEnum.step3">
+      step3
+    </ng-container>
+  </ng-container>
 </div>
 <p>
   {{data$ | async | json}}
 </p>
-<hr />-->
-
+<hr />

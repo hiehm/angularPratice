@@ -48,6 +48,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'CodeGenerator', loadChildren: () => import('./CodeGenerator/code-generator.module').then(m => m.CodeGeneratorModule) }
   , { path: 'Pratice', loadChildren: () => import('./Pratice/pratice.module').then(m => m.PraticeModule) }
   , { path: 'PraticeJs', loadChildren: () => import('./PraticeJs/PraticeJs.module').then(m => m.PraticejsModule) }
+  , { path: 'PraticeTs', loadChildren: () => import('./PraticeTs/PraticeTs.module').then(m => m.PraticetsModule) }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,
