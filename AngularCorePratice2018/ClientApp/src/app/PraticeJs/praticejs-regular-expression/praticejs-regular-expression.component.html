@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+  <div>
+    <h2>身分證驗證</h2><span>{{regexExample.regex1}}</span>
+    <p>
+      <input type="text" formControlName="regex1" /> 結果:{{form.controls.regex1.valid}},{{form.controls.regex1.value}}
+    </p>
+  </div>
+  <div>
+    <h2>https|http驗證</h2><span>{{regexExample.regex2}}</span>
+    <p>
+      <input type="text" formControlName="regex2" /> 結果:{{form.controls.regex2.valid}},{{form.controls.regex2.value}}
+    </p>
+  </div>
+</form>

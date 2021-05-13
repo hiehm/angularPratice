@@ -7,6 +7,7 @@ import { PraticejsComponent } from './praticejs/praticejs.component';
 import { PraticejsReflectComponent } from './praticejs-reflect/praticejs-reflect.component';
 import { PraticejsMapAndSetComponent } from './praticejs-map-and-set/praticejs-map-and-set.component';
 import { PraticeJsRouters } from './praticejs.routing';
+import { PraticejsRegularExpressionComponent } from './praticejs-regular-expression/praticejs-regular-expression.component';
 
 
 
@@ -16,7 +17,8 @@ import { PraticeJsRouters } from './praticejs.routing';
   declarations: [
     PraticejsComponent,
     PraticejsReflectComponent,
-    PraticejsMapAndSetComponent
+    PraticejsMapAndSetComponent,
+    PraticejsRegularExpressionComponent
   ],
   imports: [
     CommonModule,

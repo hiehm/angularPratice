@@ -14,7 +14,6 @@ function partialCall<T extends Arr, U extends Arr, R>(f: (...args: [...T, ...U])
 
 
 export class PraticeTsV4Component implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
