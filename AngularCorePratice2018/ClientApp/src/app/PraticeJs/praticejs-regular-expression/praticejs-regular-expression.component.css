@@ -1,5 +1,14 @@
-div {
-  padding: 5px;
+form{
+    padding-bottom:300px;
+}
+
+div, details {
+  padding: 20px 5px 5px 5px;
+  margin-left: 20px;
+}
+
+h1 {
+  display: inline-block;
 }
 
 h4, span {
@@ -8,4 +17,33 @@ h4, span {
 
 h3 {
   color: cornflowerblue;
+}
+
+div.flex {
+  display: flex;
+  flex-flow: wrap;
+}
+
+  div.flex > details {
+    width: 425px;
+  }
+
+details > span {
+  display: inline-block;
+  padding: 8px 0px 5px 5px;
+}
+
+summary {
+  font-family: Consolas;
+  font: bold;
+  cursor: pointer;
+}
+
+select {
+  padding-top: 14px;
+  cursor: pointer;
+}
+
+.clear {
+  color: #0c9e0c;
 }

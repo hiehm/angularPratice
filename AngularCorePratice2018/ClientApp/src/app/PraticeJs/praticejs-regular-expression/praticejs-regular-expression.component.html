@@ -1,14 +1,188 @@
 <form [formGroup]="form">
-  <div>
-    <h2>身分證驗證</h2><span>{{regexExample.regex1}}</span>
-    <p>
-      <input type="text" formControlName="regex1" /> 結果:{{form.controls.regex1.valid}},{{form.controls.regex1.value}}
-    </p>
-  </div>
-  <div>
-    <h2>https|http驗證</h2><span>{{regexExample.regex2}}</span>
-    <p>
-      <input type="text" formControlName="regex2" /> 結果:{{form.controls.regex2.valid}},{{form.controls.regex2.value}}
-    </p>
-  </div>
+  <details open="open">
+    <summary><h1>實戰參考</h1></summary>
+    <div class="flex">
+      <div>
+        <h2>身分證驗證</h2><span>{{regexExample.regex1}}</span>
+        <p>
+          <input type="text" formControlName="regex1" /> 結果:{{form.controls.regex1.valid}},{{form.controls.regex1.value}}
+        </p>
+      </div>
+      <div>
+        <h2>https|http驗證</h2><span>{{regexExample.regex2}}</span>
+        <p>
+          <input type="text" formControlName="regex2" /> 結果:{{form.controls.regex2.valid}},{{form.controls.regex2.value}}
+        </p>
+      </div>
+      <div>
+        <h2>https|http驗證</h2><span>{{regexExample.regex2}}</span>
+        <p>
+          <input type="text" formControlName="regex2" /> 結果:{{form.controls.regex2.valid}},{{form.controls.regex2.value}}
+        </p>
+      </div>
+      <div>
+        <h2>https|http驗證</h2><span>{{regexExample.regex2}}</span>
+        <p>
+          <input type="text" formControlName="regex2" /> 結果:{{form.controls.regex2.valid}},{{form.controls.regex2.value}}
+        </p>
+      </div>
+    </div>
+  </details>
+  <hr />
+  <details open="open">
+    <summary>
+      <h1>練習</h1>
+      <select (change)="praticePageNum=$event.target.value">
+        <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+          <option [value]="i">{{i}}</option>
+        </ng-container>
+      </select>
+    </summary>
+    <ng-container [ngSwitch]="praticePageNum">
+      <ng-container *ngSwitchCase="1">
+        <div class="flex">
+          <details>
+            <summary class="clear">1. 寫一個正則表達式，使其能同時識別下面所有的字符串：'bat','bit', 'but', 'hat', 'hit', 'hut'</summary>
+            <span>{{regexPraticeEnum.no1}}</span>
+            <p>
+              <input type="text" formControlName="no1" /> 結果:{{form.controls.no1.valid}},{{form.controls.no1.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">2. 匹配由單個空格分隔的任意單詞對，也就是姓和名</summary>
+            <span>{{regexPraticeEnum.no2}}</span>
+            <p>
+              <input type="text" formControlName="no2" /> 結果:{{form.controls.no2.valid}},{{form.controls.no2.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">3. 匹配由單個逗號和單個空白符分隔的任何單詞和單個字母,如姓氏的首字母</summary>
+            <span>{{regexPraticeEnum.no3}}</span>
+            <p>
+              <input type="text" formControlName="no3" /> 結果:{{form.controls.no3.valid}},{{form.controls.no3.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">4. 匹配所有的有效的Python標識符集合</summary>
+            <span>{{regexPraticeEnum.no4}}</span>
+            <p>
+              <input type="text" formControlName="no4" /> 結果:結果:{{form.controls.no4.valid}},{{form.controls.no4.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">5. 根據美國街道地址格式,匹配街道地址。美國接到地址使用如下格式:1180 Bordeaux Drive。使你的正則表達式足夠靈活,以支持多單詞的街道名稱,如3120 De la Cruz Boulevard</summary>
+            <span>{{regexPraticeEnum.no5}}</span>
+            <p>
+              <input type="text" formControlName="no5" /> 結果:{{form.controls.no5.valid}},{{form.controls.no5.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">6. 匹配以“www”起始且以“.com”結尾的簡單Web域名:例如,http://www.yahoo.com ，也支持其他域名，如.edu .net等</summary>
+            <span>{{regexPraticeEnum.no6}}</span>
+            <p>
+              <input type="text" formControlName="no6" /> 結果:{{form.controls.no6.valid}},{{form.controls.no6.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">7. 匹配所有能夠表示Python整數的字符串集</summary>
+            <span>{{regexPraticeEnum.no7}}</span>
+            <p>
+              <input type="text" formControlName="no7" /> 結果:{{form.controls.no7.valid}},{{form.controls.no7.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">8. 匹配所有能夠表示Python長整數的字符串集</summary>
+            <span>{{regexPraticeEnum.no8}}</span>
+            <p>
+              <input type="text" formControlName="no8" /> 結果:{{form.controls.no8.valid}},{{form.controls.no8.value}}
+            </p>
+          </details>
+          <details>
+            <summary class="clear">9. 匹配所有能夠表示Python浮點數的字符串集</summary>
+            <span>{{regexPraticeEnum.no9}}</span>
+            <p>
+              <input type="text" formControlName="no9" /> 結果:{{form.controls.no9.valid}},{{form.controls.no9.value}}
+            </p>
+          </details>
+          <details open="open">
+            <summary>10. 表示所有能夠表示Python複數的字符串集</summary>
+            {{regexPraticeEnum.no10}}
+          <p>
+            <input type="text" formControlName="no10"/> 結果:{{form.controls.no10.valid}},{{form.controls.no10.value}}
+          </p>
+          </details>
+          <details>
+            <summary>11、匹配一行文字中的所有開頭的字母內容</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+          <details>
+            <summary>12、匹配一行文字中的所有開頭的數字內容</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+          <details>
+            <summary>13、匹配一行文字中的所有開頭的數字內容或字母內容</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+          <details>
+            <summary>14、 只匹配包含字母和數字的行</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+          <details>
+            <summary>15、提取每行中完整的年月日和時間字段</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+          <details>
+            <summary>16、將每行中的電子郵件地址替換爲你自己的電子郵件地址</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <div class="flex">
+          <details>
+            <summary>17、匹配\home關鍵字</summary>
+            <h2></h2><span></span>
+            <p>
+              <input type="text" /> 結果:
+            </p>
+          </details>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="3">
+      </ng-container>
+      <ng-container *ngSwitchCase="4">
+      </ng-container>
+      <ng-container *ngSwitchCase="5">
+      </ng-container>
+      <ng-container *ngSwitchCase="6">
+      </ng-container>
+      <ng-container *ngSwitchCase="7">
+      </ng-container>
+      <ng-container *ngSwitchCase="8">
+      </ng-container>
+      <ng-container *ngSwitchCase="9">
+      </ng-container>
+      <ng-container *ngSwitchCase="10">
+      </ng-container>
+    </ng-container>
+
+  </details>
 </form>
