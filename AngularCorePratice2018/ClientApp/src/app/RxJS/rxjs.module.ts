@@ -7,10 +7,11 @@ import { UtilityModule } from '../../Utility/utility.module';
 import { RouterModule } from '@angular/router';
 import { RxJSRouters } from './rxjs.routing';
 import { RxjsCollection2Component } from './rxjs-collection2/rxjs-collection2.component';
+import { RxjsPraticeCounterComponent } from './pratice/rxjs-pratice-counter/rxjs-pratice-counter.component';
 
 
 @NgModule({
-  declarations: [RxjsCollectionComponent, RxjsComponent, RxjsCollection2Component],
+  declarations: [RxjsCollectionComponent, RxjsComponent, RxjsCollection2Component, RxjsPraticeCounterComponent],
   imports: [
     CommonModule,
     FormsModule,
