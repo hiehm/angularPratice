@@ -6,10 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UtilityModule } from '../../Utility/utility.module';
 import { RouterModule } from '@angular/router';
 import { RxJSRouters } from './rxjs.routing';
+import { RxjsCollection2Component } from './rxjs-collection2/rxjs-collection2.component';
 
 
 @NgModule({
-  declarations: [RxjsCollectionComponent, RxjsComponent],
+  declarations: [RxjsCollectionComponent, RxjsComponent, RxjsCollection2Component],
   imports: [
     CommonModule,
     FormsModule,
