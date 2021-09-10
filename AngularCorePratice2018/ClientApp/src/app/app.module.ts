@@ -33,7 +33,6 @@ import { AppINITIALZERService } from './app-initialzer.service';
 import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.component';
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
-import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 import { AnimationComponent } from './animation/animation.component';
 import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
 import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
@@ -67,7 +66,6 @@ import { environment } from '../environments/environment';
     ChangeDectorRefComponent,
     ChangeDetectionStrategyComponent,
     AsyncPipeComponent,
-    RxjsCollectionComponent,
     AnimationComponent,
     LittleMouseSearchComponent,
     UrlMetadataParserComponent,

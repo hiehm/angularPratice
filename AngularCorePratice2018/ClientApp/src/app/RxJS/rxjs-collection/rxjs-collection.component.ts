@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, concat } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { UpperCasePipe } from '@angular/common';
-import { RxJsModeEnum } from '../../Utility/enums/code-generator-enum';
+import { RxJsModeEnum } from '../../../Utility/enums/code-generator-enum';
+import { Observable, combineLatest, forkJoin, Subject, interval, timer, fromEvent, empty, of, from, concat } from 'rxjs';
 import { map, tap, take, switchMap, shareReplay, debounceTime, distinctUntilChanged, filter, combineAll, takeUntil, skip, takeLast, bufferTime, bufferCount, distinct, zip, catchError, repeat, concatAll, concatMap, merge, mergeAll, delay, mergeMap, window, count, switchAll, windowToggle, windowCount, windowTime, windowWhen, groupBy, reduce, publish, refCount, share, pairwise, race, defaultIfEmpty, every } from 'rxjs/operators';
 
 @Component({

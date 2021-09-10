@@ -44,6 +44,7 @@
     <Folder Include="ClientApp\src\app\PraticeJs\praticejs\" />
     <Folder Include="ClientApp\src\app\PraticeTs\praticets\" />
     <Folder Include="ClientApp\src\app\Pratice\partial\" />
+    <Folder Include="ClientApp\src\app\RxJS\rxjs\" />
     <Folder Include="ClientApp\src\Utility\enums\" />
     <Folder Include="ClientApp\src\Utility\interfaces\codeGenerator\" />
     <Folder Include="ClientApp\src\Utility\directive\" />
@@ -69,7 +70,7 @@
     <ItemGroup>
       <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
       <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-      <ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>

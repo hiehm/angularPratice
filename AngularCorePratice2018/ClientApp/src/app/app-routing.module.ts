@@ -13,7 +13,6 @@ import { DynamicLoadingComponent } from '../app/dynamic-loading/dynamic-loading.
 import { ChangeDectorRefComponent } from './change-dector-ref/change-dector-ref.component';
 import { ChangeDetectionStrategyComponent } from './change-detection-strategy/change-detection-strategy.component';
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
-import { RxjsCollectionComponent } from './rxjs-collection/rxjs-collection.component';
 import { AnimationComponent } from './animation/animation.component';
 import { LittleMouseSearchComponent } from './little-mouse-search/little-mouse-search.component';
 import { UrlMetadataParserComponent } from './url-metadata-parser/url-metadata-parser.component';
@@ -34,7 +33,6 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'ChangeDectorRef', component: ChangeDectorRefComponent }
   , { path: 'ChangeDetectionStrategy', component: ChangeDetectionStrategyComponent }
   , { path: 'AsyncPipe', component: AsyncPipeComponent }
-  , { path: 'Rxjs', component: RxjsCollectionComponent }
   , { path: 'Animation', component: AnimationComponent }
   , { path: 'compose', component: AnimationComponent, outlet: 'popup' }
   , { path: 'PlugIn', loadChildren: () => import('./PlugIn/plugin.module').then(m => m.PluginModule) }
@@ -49,6 +47,7 @@ const routes: Routes = [ //建構Routes規則
   , { path: 'Pratice', loadChildren: () => import('./Pratice/pratice.module').then(m => m.PraticeModule) }
   , { path: 'PraticeJs', loadChildren: () => import('./PraticeJs/PraticeJs.module').then(m => m.PraticejsModule) }
   , { path: 'PraticeTs', loadChildren: () => import('./PraticeTs/PraticeTs.module').then(m => m.PraticetsModule) }
+  , { path: 'RxJS', loadChildren: () => import('./RxJS/rxjs.module').then(m => m.RxjsModule) }
   // , { path: 'heroList', component: HeroListComponent }
   //, {
   //  path: 'dashboard/:id', component: DashboardComponent,
